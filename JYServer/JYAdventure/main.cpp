@@ -2,6 +2,8 @@
 
 int32_t main(int argc, const char** argv)
 {
-	std::cout << "adventure main!" << '\n';
+	spdlog::info("Welcome to spdlog!");
+
+	//std::cout << "adventure main!" << '\n';
 	return 0;
 }
