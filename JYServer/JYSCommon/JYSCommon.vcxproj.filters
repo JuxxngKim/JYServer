@@ -12,6 +12,12 @@
     <Filter Include="소스 파일\PrecompileHeader">
       <UniqueIdentifier>{7ea7fa8d-00f7-49cc-80c0-942f358499ce}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Util">
+      <UniqueIdentifier>{05efcc1d-0408-4aaf-a065-106976a30fe5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Logger">
+      <UniqueIdentifier>{1774a6fe-58c8-4224-b604-2c261d247f36}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ProjectJY.h">
@@ -20,10 +26,22 @@
     <ClInclude Include="LibLink.h">
       <Filter>소스 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Singleton.h">
+      <Filter>소스 파일\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Logger.h">
+      <Filter>소스 파일\Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="Allocator.h">
+      <Filter>소스 파일\Util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ProjectJY.cpp">
       <Filter>소스 파일\PrecompileHeader</Filter>
+    </ClCompile>
+    <ClCompile Include="Logger.cpp">
+      <Filter>소스 파일\Logger</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

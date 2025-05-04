@@ -1,9 +1,9 @@
-#include "ProjectJY.h"
+﻿#include "ProjectJY.h"
+#include "AdventureServerApp.h"
 
 int32_t main(int argc, const char** argv)
 {
-	spdlog::info("Welcome to spdlog!");
-
-	//std::cout << "adventure main!" << '\n';
+	jy::AdventureServerApp app;
+	app.Start();
 	return 0;
 }

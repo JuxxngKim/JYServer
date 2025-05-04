@@ -19,10 +19,19 @@
     <ClCompile Include="ProjectJY.cpp">
       <Filter>소스 파일\PrecompileHeader</Filter>
     </ClCompile>
+    <ClCompile Include="AdventureServerApp.cpp">
+      <Filter>소스 파일\AdventureServer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ProjectJY.h">
       <Filter>소스 파일\PrecompileHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="AdventureServerApp.h">
+      <Filter>소스 파일\AdventureServer</Filter>
+    </ClInclude>
+    <ClInclude Include="AdventureLibLink.h">
+      <Filter>소스 파일</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

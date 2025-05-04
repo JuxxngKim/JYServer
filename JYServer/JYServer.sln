@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JYAdventure", "JYAdventure\JYAdventure.vcxproj", "{9BCE1D9F-20D7-46FC-9707-C8A7ED1E07AB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2D0B8DCF-CB92-48D2-9C1C-031F3C2D1A21} = {2D0B8DCF-CB92-48D2-9C1C-031F3C2D1A21}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JYSCommon", "JYSCommon\JYSCommon.vcxproj", "{2D0B8DCF-CB92-48D2-9C1C-031F3C2D1A21}"
 EndProject
