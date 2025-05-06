@@ -1,0 +1,25 @@
+// protos/sprotocol.proto
+syntax = "proto3";
+package Example;
+
+import "protocol.proto"; // protocol.proto 임포트 (PlayerData 사용 위함)
+
+// 로그인 요청 메시지
+message LoginRequest {
+  string user_id = 1;
+  string password_hash = 2; // 비밀번호는 해시된 값으로 전송 가정
+}
+
+// 로그인 응답 메시지
+message LoginResponse {
+  bool success = 1;
+  string error_message = 2; // 실패 시 에러 메시지
+  PlayerData player_data = 3; // 성공 시 플레이어 데이터 (protocol.proto의 PlayerData 사용)
+}
+
+// 간단한 인증 서비스 정의 (gRPC 등에서 활용 가능)
+service AuthService {
+  // Login 메서드 정의 (LoginRequest를 받아 LoginResponse를 반환)
+  rpc Login (LoginRequest) returns (LoginResponse);
+  // 다른 RPC 메서드 추가 가능
+}

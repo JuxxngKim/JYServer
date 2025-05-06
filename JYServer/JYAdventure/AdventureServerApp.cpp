@@ -36,8 +36,12 @@ namespace jy
 		const bool result = Logger::GetInstance().Init(logLevel, dir, name);
 		if (!result) return false;
 
+		Example::PlayerData test;
+		test.set_level(1);
+
 		S_LOG_INFO("Logger Init");
-		S_LOG_INFO("Login AccountUID: {}",123);
+		S_LOG_INFO("Login AccountUID: {}", 123);
+		S_LOG_INFO("PlayerData Level: {}", test.level());
 		return true;
 	}
 }

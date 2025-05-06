@@ -1,0 +1,12 @@
+// protos/enum.proto
+syntax = "proto3"; // proto3 문법 사용 명시
+package Example;    // 패키지 이름 정의 (네임스페이스 역할)
+
+// 플레이어 상태를 나타내는 열거형
+enum PlayerState {
+  STATE_UNKNOWN = 0; // proto3에서는 첫 번째 enum 값은 반드시 0이어야 함
+  STATE_IDLE = 1;
+  STATE_MOVING = 2;
+  STATE_ATTACKING = 3;
+  STATE_DEAD = 4;
+}

@@ -23,3 +23,5 @@
 #include "Allocator.h"
 #include "Singleton.h"
 #include "Logger.h"
+
+#include "../../../../Common/Tool/ProtocolGenerator/generated/protocol.pb.h"
