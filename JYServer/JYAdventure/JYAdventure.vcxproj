@@ -118,6 +118,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>ProjectJY.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(SolutionDir)JYSCommon;$(SolutionDir)extLib\spdlog\include;$(SolutionDir)..\Common\Dependencies\Protobuf\include</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -137,6 +138,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>ProjectJY.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(SolutionDir)JYSCommon;$(SolutionDir)extLib\spdlog\include;$(SolutionDir)..\Common\Dependencies\Protobuf\include</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
