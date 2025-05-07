@@ -5,10 +5,6 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="리소스 파일">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="소스 파일\PrecompileHeader">
       <UniqueIdentifier>{7ea7fa8d-00f7-49cc-80c0-942f358499ce}</UniqueIdentifier>
     </Filter>
@@ -20,6 +16,12 @@
     </Filter>
     <Filter Include="소스 파일\protobuf">
       <UniqueIdentifier>{9af2e2f6-1dd1-441e-b910-3aac5e4b4167}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Network">
+      <UniqueIdentifier>{570522a9-8cb2-4a83-b48a-266794a5c4d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Define">
+      <UniqueIdentifier>{157d9403-e3f5-4fee-8972-77073d7eb145}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -47,6 +49,21 @@
     <ClInclude Include="..\..\Common\Tool\ProtocolGenerator\generated\sprotocol.pb.h">
       <Filter>소스 파일\protobuf</Filter>
     </ClInclude>
+    <ClInclude Include="DefineEnum.h">
+      <Filter>소스 파일\Define</Filter>
+    </ClInclude>
+    <ClInclude Include="DefineType.h">
+      <Filter>소스 파일\Define</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkContext.h">
+      <Filter>소스 파일\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkBuffer.h">
+      <Filter>소스 파일\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="DefineConst.h">
+      <Filter>소스 파일\Define</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ProjectJY.cpp">
@@ -63,6 +80,12 @@
     </ClCompile>
     <ClCompile Include="..\..\Common\Tool\ProtocolGenerator\generated\enum.pb.cc">
       <Filter>소스 파일\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkContext.cpp">
+      <Filter>소스 파일\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkBuffer.cpp">
+      <Filter>소스 파일\Network</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

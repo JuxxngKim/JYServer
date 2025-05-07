@@ -163,8 +163,13 @@
     <ClInclude Include="..\..\Common\Tool\ProtocolGenerator\generated\protocol.pb.h" />
     <ClInclude Include="..\..\Common\Tool\ProtocolGenerator\generated\sprotocol.pb.h" />
     <ClInclude Include="Allocator.h" />
+    <ClInclude Include="DefineConst.h" />
+    <ClInclude Include="DefineEnum.h" />
+    <ClInclude Include="DefineType.h" />
     <ClInclude Include="LibLink.h" />
     <ClInclude Include="Logger.h" />
+    <ClInclude Include="NetworkBuffer.h" />
+    <ClInclude Include="NetworkContext.h" />
     <ClInclude Include="ProjectJY.h" />
     <ClInclude Include="Singleton.h" />
   </ItemGroup>
@@ -182,6 +187,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Logger.cpp" />
+    <ClCompile Include="NetworkBuffer.cpp" />
+    <ClCompile Include="NetworkContext.cpp" />
     <ClCompile Include="ProjectJY.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>

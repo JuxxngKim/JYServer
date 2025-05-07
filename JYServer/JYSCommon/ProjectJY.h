@@ -26,6 +26,9 @@
 
 #include "Allocator.h"
 #include "Singleton.h"
+#include "DefineEnum.h"
+#include "DefineType.h"
+#include "DefineConst.h"
 #include "Logger.h"
 
 #include "../../../../Common/Tool/ProtocolGenerator/generated/protocol.pb.h"
