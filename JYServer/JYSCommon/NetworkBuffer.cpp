@@ -1,5 +1,6 @@
 ﻿#include "ProjectJY.h"
 #include "NetworkBuffer.h"
+#include "Crypt.h"
 #include "NetworkContext.h"
 
 namespace jy
@@ -14,21 +15,20 @@ namespace jy
 
 	NetworkBuffer::~NetworkBuffer()
 	{
-		if (m_buffer == nullptr) return;
-		delete[] m_buffer;
+		JY_SAFE_DELETE_ARRAY(m_buffer);
 	}
 
 	bool NetworkBuffer::Write(void* src, int srcSize)
 	{
 		if (src == nullptr || srcSize <= 0)
 		{
-			S_LOG_ERROR("failed - src");
+			S_LOG_ERROR(0, 0, "failed - src");
 			return false;
 		}
 
 		if (srcSize > GetEmptySize())
 		{
-			S_LOG_ERROR("failed - GetEmptySize");
+			S_LOG_ERROR(0, 0, "failed - GetEmptySize");
 			return false;
 		}
 
@@ -44,7 +44,7 @@ namespace jy
 		{
 			if (size > GetEmptySize())
 			{
-				S_LOG_ERROR("failed - GetEmptySize");
+				S_LOG_ERROR(0, 0, "failed - GetEmptySize");
 				return false;
 			}
 
@@ -58,7 +58,7 @@ namespace jy
 	{
 		if (dest == nullptr || destSize <= 0)
 		{
-			S_LOG_ERROR("failed - dest");
+			S_LOG_ERROR(0, 0, "failed - dest");
 			return false;
 		}
 
@@ -66,7 +66,7 @@ namespace jy
 		int srcSize = GetDataSize();
 		if (src == nullptr || srcSize < destSize)
 		{
-			S_LOG_ERROR("failed - src");
+			S_LOG_ERROR(0, 0, "failed - src");
 			return false;
 		}
 
@@ -82,7 +82,7 @@ namespace jy
 		{
 			if (size > GetDataSize())
 			{
-				S_LOG_ERROR("failed - size");
+				S_LOG_ERROR(0, 0, "failed - size");
 				return false;
 			}
 
@@ -132,15 +132,15 @@ namespace jy
 		if (m_buffer) return false;
 
 		//사이즈 체크
-		int messageSize = packet.ByteSize();
+		int messageSize = packet.ByteSizeLong();
 		if (messageSize < 0)
 		{
-			S_LOG_ERROR("packet size under(id : %, size : %)", packetId, messageSize);
+			S_LOG_ERROR(0, 0, "packet size under(id : %, size : %)", packetId, messageSize);
 			messageSize = 0;
 		}
 		else if (messageSize >= g_iPacketBodySize)
 		{
-			S_LOG_ERROR("packet size over(id : %, size : %)", packetId, messageSize);
+			S_LOG_ERROR(0, 0, "packet size over(id : %, size : %)", packetId, messageSize);
 		}
 
 		//버퍼 할당
@@ -148,8 +148,8 @@ namespace jy
 		m_buffer = new char[m_bufferSize];
 
 		//데이터 복사
-		uint64_t tempMessageSize = 0;
-		uint64_t tempMessageID = 0;
+		u_long tempMessageSize = 0;
+		u_long tempMessageID = 0;
 
 		tempMessageSize = htonl(sizeof(tempMessageID) + messageSize);
 		Write(&tempMessageSize, sizeof(tempMessageSize));
@@ -177,8 +177,8 @@ namespace jy
 		//데이터가 패킷최소사이즈보다 큰 경우인지 체크
 		if (packetSize >= g_iPacketHeaderSize)
 		{
-			int messageSize = ntohl(*(uint64_t*)(packet)) - sizeof(u_long);
-			int messageID = ntohl(*(uint64_t*)(packet + sizeof(u_long)));
+			int messageSize = ntohl(*(u_long*)(packet)) - sizeof(u_long);
+			int messageID = ntohl(*(u_long*)(packet + sizeof(u_long)));
 
 			//데이터 사이즈 예외 체크
 			if (messageSize >= 0 && messageSize <= packetSize - g_iPacketHeaderSize)
@@ -186,8 +186,8 @@ namespace jy
 				//읽기 처리
 				CompleteRead(messageSize + g_iPacketHeaderSize);
 
-				//TODO받기 완료 처리
-				//Crypt::Convert(packet + g_iPacketHeaderSize, messageSize);
+				//받기 완료 처리
+				Crypt::Convert(packet + g_iPacketHeaderSize, messageSize);
 
 				//받기 완료 처리
 				return std::forward_as_tuple(messageID, packet + g_iPacketHeaderSize, messageSize);
@@ -214,11 +214,7 @@ namespace jy
 			//버퍼 축소
 			if (m_bufferSize > DEFAULT_CAPACITY_SIZE)
 			{
-				if (m_buffer != nullptr)
-				{
-					delete[] m_buffer;
-					m_buffer = nullptr;
-				}
+				JY_SAFE_DELETE_ARRAY(m_buffer);
 
 				m_bufferSize = DEFAULT_CAPACITY_SIZE;
 				m_buffer = new char[m_bufferSize];
@@ -254,11 +250,7 @@ namespace jy
 				m_writeSize -= m_readSize;
 				m_readSize = 0;
 
-				if (temp != nullptr)
-				{
-					delete[] temp;
-					temp = nullptr;
-				}
+				JY_SAFE_DELETE_ARRAY(temp);
 			}
 		}
 

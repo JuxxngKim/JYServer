@@ -24,11 +24,14 @@
 #include <stdexcept>
 #include <spdlog/spdlog.h>
 
+#include <winsock2.h>
+
 #include "Allocator.h"
 #include "Singleton.h"
 #include "DefineEnum.h"
 #include "DefineType.h"
 #include "DefineConst.h"
+#include "DefineMacro.h"
 #include "Logger.h"
 
 #include "../../../../Common/Tool/ProtocolGenerator/generated/protocol.pb.h"

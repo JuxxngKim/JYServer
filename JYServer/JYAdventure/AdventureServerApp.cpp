@@ -39,9 +39,9 @@ namespace jy
 		Example::PlayerData test;
 		test.set_level(1);
 
-		S_LOG_INFO("Logger Init");
-		S_LOG_INFO("Login AccountUID: {}", 123);
-		S_LOG_INFO("PlayerData Level: {}", test.level());
+		S_LOG_INFO(0, 0, "Logger Init");
+		S_LOG_INFO(0, 0, "Login AccountUID: {}", 123);
+		S_LOG_INFO(0, 0, "PlayerData Level: {}", test.level());
 		return true;
 	}
 }

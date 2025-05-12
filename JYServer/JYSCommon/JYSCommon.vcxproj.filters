@@ -28,9 +28,6 @@
     <ClInclude Include="ProjectJY.h">
       <Filter>소스 파일\PrecompileHeader</Filter>
     </ClInclude>
-    <ClInclude Include="LibLink.h">
-      <Filter>소스 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Singleton.h">
       <Filter>소스 파일\Util</Filter>
     </ClInclude>
@@ -64,6 +61,15 @@
     <ClInclude Include="DefineConst.h">
       <Filter>소스 파일\Define</Filter>
     </ClInclude>
+    <ClInclude Include="Crypt.h">
+      <Filter>소스 파일\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="LibLink.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="DefineMacro.h">
+      <Filter>소스 파일\Define</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ProjectJY.cpp">
@@ -86,6 +92,9 @@
     </ClCompile>
     <ClCompile Include="NetworkBuffer.cpp">
       <Filter>소스 파일\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Crypt.cpp">
+      <Filter>소스 파일\Util</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

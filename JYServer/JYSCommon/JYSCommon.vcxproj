@@ -163,8 +163,10 @@
     <ClInclude Include="..\..\Common\Tool\ProtocolGenerator\generated\protocol.pb.h" />
     <ClInclude Include="..\..\Common\Tool\ProtocolGenerator\generated\sprotocol.pb.h" />
     <ClInclude Include="Allocator.h" />
+    <ClInclude Include="Crypt.h" />
     <ClInclude Include="DefineConst.h" />
     <ClInclude Include="DefineEnum.h" />
+    <ClInclude Include="DefineMacro.h" />
     <ClInclude Include="DefineType.h" />
     <ClInclude Include="LibLink.h" />
     <ClInclude Include="Logger.h" />
@@ -186,6 +188,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Crypt.cpp" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="NetworkBuffer.cpp" />
     <ClCompile Include="NetworkContext.cpp" />
