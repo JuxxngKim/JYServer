@@ -1,6 +1,6 @@
 // protos/protocol.proto
 syntax = "proto3";
-package Example;
+package jy;
 
 import "enum.proto"; // 위에서 정의한 enum.proto 파일을 임포트
 

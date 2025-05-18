@@ -1,6 +1,12 @@
 // protos/enum.proto
 syntax = "proto3"; // proto3 문법 사용 명시
-package Example;    // 패키지 이름 정의 (네임스페이스 역할)
+package jy;    // 패키지 이름 정의 (네임스페이스 역할)
+
+enum EMessageID
+{
+	NET_ALIVE_REQ = 0;
+	NET_ALIVE_ACK = 2;
+}
 
 // 플레이어 상태를 나타내는 열거형
 enum PlayerState {

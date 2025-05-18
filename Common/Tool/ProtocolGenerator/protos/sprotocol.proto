@@ -1,6 +1,6 @@
 // protos/sprotocol.proto
 syntax = "proto3";
-package Example;
+package jy;
 
 import "protocol.proto"; // protocol.proto 임포트 (PlayerData 사용 위함)
 

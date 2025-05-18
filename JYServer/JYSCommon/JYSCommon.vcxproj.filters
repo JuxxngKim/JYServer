@@ -14,14 +14,17 @@
     <Filter Include="소스 파일\Logger">
       <UniqueIdentifier>{1774a6fe-58c8-4224-b604-2c261d247f36}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\protobuf">
-      <UniqueIdentifier>{9af2e2f6-1dd1-441e-b910-3aac5e4b4167}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\Network">
       <UniqueIdentifier>{570522a9-8cb2-4a83-b48a-266794a5c4d5}</UniqueIdentifier>
     </Filter>
     <Filter Include="소스 파일\Define">
       <UniqueIdentifier>{157d9403-e3f5-4fee-8972-77073d7eb145}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\protobuf">
+      <UniqueIdentifier>{9af2e2f6-1dd1-441e-b910-3aac5e4b4167}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\ThreadCollector">
+      <UniqueIdentifier>{09c23cbb-f63c-4575-8c9b-d51d13192d63}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -70,6 +73,28 @@
     <ClInclude Include="DefineMacro.h">
       <Filter>소스 파일\Define</Filter>
     </ClInclude>
+    <ClInclude Include="NetworkEvent.h">
+      <Filter>소스 파일\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="PacketWrapper.h">
+      <Filter>소스 파일\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkManager.h">
+      <Filter>소스 파일\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkHost.h">
+      <Filter>소스 파일\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkTask.h">
+      <Filter>소스 파일\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadCollector.h">
+      <Filter>소스 파일\ThreadCollector</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeUtil.h">
+      <Filter>소스 파일\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="SDateTime.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ProjectJY.cpp">
@@ -95,6 +120,27 @@
     </ClCompile>
     <ClCompile Include="Crypt.cpp">
       <Filter>소스 파일\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkEvent.cpp">
+      <Filter>소스 파일\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkManager.cpp">
+      <Filter>소스 파일\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkHost.cpp">
+      <Filter>소스 파일\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkTask.cpp">
+      <Filter>소스 파일\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadCollector.cpp">
+      <Filter>소스 파일\ThreadCollector</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeUtil.cpp">
+      <Filter>소스 파일\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="SDateTime.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

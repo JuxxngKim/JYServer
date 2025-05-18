@@ -16,7 +16,7 @@
 #include <google/protobuf/port_def.inc>
 
 PROTOBUF_PRAGMA_INIT_SEG
-namespace Example {
+namespace jy {
 constexpr LoginRequest::LoginRequest(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : user_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
@@ -44,53 +44,53 @@ struct LoginResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT LoginResponseDefaultTypeInternal _LoginResponse_default_instance_;
-}  // namespace Example
+}  // namespace jy
 static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_sprotocol_2eproto[2];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_sprotocol_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_sprotocol_2eproto = nullptr;
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_sprotocol_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::Example::LoginRequest, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::jy::LoginRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::Example::LoginRequest, user_id_),
-  PROTOBUF_FIELD_OFFSET(::Example::LoginRequest, password_hash_),
+  PROTOBUF_FIELD_OFFSET(::jy::LoginRequest, user_id_),
+  PROTOBUF_FIELD_OFFSET(::jy::LoginRequest, password_hash_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::Example::LoginResponse, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::jy::LoginResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::Example::LoginResponse, success_),
-  PROTOBUF_FIELD_OFFSET(::Example::LoginResponse, error_message_),
-  PROTOBUF_FIELD_OFFSET(::Example::LoginResponse, player_data_),
+  PROTOBUF_FIELD_OFFSET(::jy::LoginResponse, success_),
+  PROTOBUF_FIELD_OFFSET(::jy::LoginResponse, error_message_),
+  PROTOBUF_FIELD_OFFSET(::jy::LoginResponse, player_data_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::Example::LoginRequest)},
-  { 7, -1, sizeof(::Example::LoginResponse)},
+  { 0, -1, sizeof(::jy::LoginRequest)},
+  { 7, -1, sizeof(::jy::LoginResponse)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Example::_LoginRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Example::_LoginResponse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::jy::_LoginRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::jy::_LoginResponse_default_instance_),
 };
 
 const char descriptor_table_protodef_sprotocol_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\017sprotocol.proto\022\007Example\032\016protocol.pro"
-  "to\"6\n\014LoginRequest\022\017\n\007user_id\030\001 \001(\t\022\025\n\rp"
-  "assword_hash\030\002 \001(\t\"a\n\rLoginResponse\022\017\n\007s"
-  "uccess\030\001 \001(\010\022\025\n\rerror_message\030\002 \001(\t\022(\n\013p"
-  "layer_data\030\003 \001(\0132\023.Example.PlayerData2E\n"
-  "\013AuthService\0226\n\005Login\022\025.Example.LoginReq"
-  "uest\032\026.Example.LoginResponseb\006proto3"
+  "\n\017sprotocol.proto\022\002jy\032\016protocol.proto\"6\n"
+  "\014LoginRequest\022\017\n\007user_id\030\001 \001(\t\022\025\n\rpasswo"
+  "rd_hash\030\002 \001(\t\"\\\n\rLoginResponse\022\017\n\007succes"
+  "s\030\001 \001(\010\022\025\n\rerror_message\030\002 \001(\t\022#\n\013player"
+  "_data\030\003 \001(\0132\016.jy.PlayerData2;\n\013AuthServi"
+  "ce\022,\n\005Login\022\020.jy.LoginRequest\032\021.jy.Login"
+  "Responseb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sprotocol_2eproto_deps[1] = {
   &::descriptor_table_protocol_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sprotocol_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sprotocol_2eproto = {
-  false, false, 276, descriptor_table_protodef_sprotocol_2eproto, "sprotocol.proto", 
+  false, false, 256, descriptor_table_protodef_sprotocol_2eproto, "sprotocol.proto", 
   &descriptor_table_sprotocol_2eproto_once, descriptor_table_sprotocol_2eproto_deps, 1, 2,
   schemas, file_default_instances, TableStruct_sprotocol_2eproto::offsets,
   file_level_metadata_sprotocol_2eproto, file_level_enum_descriptors_sprotocol_2eproto, file_level_service_descriptors_sprotocol_2eproto,
@@ -101,7 +101,7 @@ PROTOBUF_ATTRIBUTE_WEAK const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable
 
 // Force running AddDescriptors() at dynamic initialization time.
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY static ::PROTOBUF_NAMESPACE_ID::internal::AddDescriptorsRunner dynamic_init_dummy_sprotocol_2eproto(&descriptor_table_sprotocol_2eproto);
-namespace Example {
+namespace jy {
 
 // ===================================================================
 
@@ -113,7 +113,7 @@ LoginRequest::LoginRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:Example.LoginRequest)
+  // @@protoc_insertion_point(arena_constructor:jy.LoginRequest)
 }
 LoginRequest::LoginRequest(const LoginRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
@@ -128,7 +128,7 @@ LoginRequest::LoginRequest(const LoginRequest& from)
     password_hash_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_password_hash(), 
       GetArenaForAllocation());
   }
-  // @@protoc_insertion_point(copy_constructor:Example.LoginRequest)
+  // @@protoc_insertion_point(copy_constructor:jy.LoginRequest)
 }
 
 void LoginRequest::SharedCtor() {
@@ -137,7 +137,7 @@ password_hash_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStri
 }
 
 LoginRequest::~LoginRequest() {
-  // @@protoc_insertion_point(destructor:Example.LoginRequest)
+  // @@protoc_insertion_point(destructor:jy.LoginRequest)
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -159,7 +159,7 @@ void LoginRequest::SetCachedSize(int size) const {
 }
 
 void LoginRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:Example.LoginRequest)
+// @@protoc_insertion_point(message_clear_start:jy.LoginRequest)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -180,7 +180,7 @@ const char* LoginRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_user_id();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "Example.LoginRequest.user_id"));
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "jy.LoginRequest.user_id"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -189,7 +189,7 @@ const char* LoginRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_password_hash();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "Example.LoginRequest.password_hash"));
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "jy.LoginRequest.password_hash"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -218,7 +218,7 @@ failure:
 
 ::PROTOBUF_NAMESPACE_ID::uint8* LoginRequest::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:Example.LoginRequest)
+  // @@protoc_insertion_point(serialize_to_array_start:jy.LoginRequest)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -227,7 +227,7 @@ failure:
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_user_id().data(), static_cast<int>(this->_internal_user_id().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "Example.LoginRequest.user_id");
+      "jy.LoginRequest.user_id");
     target = stream->WriteStringMaybeAliased(
         1, this->_internal_user_id(), target);
   }
@@ -237,7 +237,7 @@ failure:
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_password_hash().data(), static_cast<int>(this->_internal_password_hash().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "Example.LoginRequest.password_hash");
+      "jy.LoginRequest.password_hash");
     target = stream->WriteStringMaybeAliased(
         2, this->_internal_password_hash(), target);
   }
@@ -246,12 +246,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:Example.LoginRequest)
+  // @@protoc_insertion_point(serialize_to_array_end:jy.LoginRequest)
   return target;
 }
 
 size_t LoginRequest::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:Example.LoginRequest)
+// @@protoc_insertion_point(message_byte_size_start:jy.LoginRequest)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -282,22 +282,22 @@ size_t LoginRequest::ByteSizeLong() const {
 }
 
 void LoginRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:Example.LoginRequest)
+// @@protoc_insertion_point(generalized_merge_from_start:jy.LoginRequest)
   GOOGLE_DCHECK_NE(&from, this);
   const LoginRequest* source =
       ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<LoginRequest>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:Example.LoginRequest)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:jy.LoginRequest)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:Example.LoginRequest)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:jy.LoginRequest)
     MergeFrom(*source);
   }
 }
 
 void LoginRequest::MergeFrom(const LoginRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:Example.LoginRequest)
+// @@protoc_insertion_point(class_specific_merge_from_start:jy.LoginRequest)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -312,14 +312,14 @@ void LoginRequest::MergeFrom(const LoginRequest& from) {
 }
 
 void LoginRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:Example.LoginRequest)
+// @@protoc_insertion_point(generalized_copy_from_start:jy.LoginRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void LoginRequest::CopyFrom(const LoginRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:Example.LoginRequest)
+// @@protoc_insertion_point(class_specific_copy_from_start:jy.LoginRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -354,10 +354,10 @@ void LoginRequest::InternalSwap(LoginRequest* other) {
 
 class LoginResponse::_Internal {
  public:
-  static const ::Example::PlayerData& player_data(const LoginResponse* msg);
+  static const ::jy::PlayerData& player_data(const LoginResponse* msg);
 };
 
-const ::Example::PlayerData&
+const ::jy::PlayerData&
 LoginResponse::_Internal::player_data(const LoginResponse* msg) {
   return *msg->player_data_;
 }
@@ -371,7 +371,7 @@ LoginResponse::LoginResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:Example.LoginResponse)
+  // @@protoc_insertion_point(arena_constructor:jy.LoginResponse)
 }
 LoginResponse::LoginResponse(const LoginResponse& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
@@ -382,12 +382,12 @@ LoginResponse::LoginResponse(const LoginResponse& from)
       GetArenaForAllocation());
   }
   if (from._internal_has_player_data()) {
-    player_data_ = new ::Example::PlayerData(*from.player_data_);
+    player_data_ = new ::jy::PlayerData(*from.player_data_);
   } else {
     player_data_ = nullptr;
   }
   success_ = from.success_;
-  // @@protoc_insertion_point(copy_constructor:Example.LoginResponse)
+  // @@protoc_insertion_point(copy_constructor:jy.LoginResponse)
 }
 
 void LoginResponse::SharedCtor() {
@@ -399,7 +399,7 @@ error_message_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStri
 }
 
 LoginResponse::~LoginResponse() {
-  // @@protoc_insertion_point(destructor:Example.LoginResponse)
+  // @@protoc_insertion_point(destructor:jy.LoginResponse)
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -421,7 +421,7 @@ void LoginResponse::SetCachedSize(int size) const {
 }
 
 void LoginResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:Example.LoginResponse)
+// @@protoc_insertion_point(message_clear_start:jy.LoginResponse)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -453,11 +453,11 @@ const char* LoginResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_error_message();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "Example.LoginResponse.error_message"));
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "jy.LoginResponse.error_message"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .Example.PlayerData player_data = 3;
+      // .jy.PlayerData player_data = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_player_data(), ptr);
@@ -489,7 +489,7 @@ failure:
 
 ::PROTOBUF_NAMESPACE_ID::uint8* LoginResponse::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:Example.LoginResponse)
+  // @@protoc_insertion_point(serialize_to_array_start:jy.LoginResponse)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -504,12 +504,12 @@ failure:
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_error_message().data(), static_cast<int>(this->_internal_error_message().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "Example.LoginResponse.error_message");
+      "jy.LoginResponse.error_message");
     target = stream->WriteStringMaybeAliased(
         2, this->_internal_error_message(), target);
   }
 
-  // .Example.PlayerData player_data = 3;
+  // .jy.PlayerData player_data = 3;
   if (this->has_player_data()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -521,12 +521,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:Example.LoginResponse)
+  // @@protoc_insertion_point(serialize_to_array_end:jy.LoginResponse)
   return target;
 }
 
 size_t LoginResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:Example.LoginResponse)
+// @@protoc_insertion_point(message_byte_size_start:jy.LoginResponse)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -540,7 +540,7 @@ size_t LoginResponse::ByteSizeLong() const {
         this->_internal_error_message());
   }
 
-  // .Example.PlayerData player_data = 3;
+  // .jy.PlayerData player_data = 3;
   if (this->has_player_data()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -562,22 +562,22 @@ size_t LoginResponse::ByteSizeLong() const {
 }
 
 void LoginResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:Example.LoginResponse)
+// @@protoc_insertion_point(generalized_merge_from_start:jy.LoginResponse)
   GOOGLE_DCHECK_NE(&from, this);
   const LoginResponse* source =
       ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<LoginResponse>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:Example.LoginResponse)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:jy.LoginResponse)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:Example.LoginResponse)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:jy.LoginResponse)
     MergeFrom(*source);
   }
 }
 
 void LoginResponse::MergeFrom(const LoginResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:Example.LoginResponse)
+// @@protoc_insertion_point(class_specific_merge_from_start:jy.LoginResponse)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -587,7 +587,7 @@ void LoginResponse::MergeFrom(const LoginResponse& from) {
     _internal_set_error_message(from._internal_error_message());
   }
   if (from.has_player_data()) {
-    _internal_mutable_player_data()->::Example::PlayerData::MergeFrom(from._internal_player_data());
+    _internal_mutable_player_data()->::jy::PlayerData::MergeFrom(from._internal_player_data());
   }
   if (from.success() != 0) {
     _internal_set_success(from._internal_success());
@@ -595,14 +595,14 @@ void LoginResponse::MergeFrom(const LoginResponse& from) {
 }
 
 void LoginResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:Example.LoginResponse)
+// @@protoc_insertion_point(generalized_copy_from_start:jy.LoginResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void LoginResponse::CopyFrom(const LoginResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:Example.LoginResponse)
+// @@protoc_insertion_point(class_specific_copy_from_start:jy.LoginResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -635,13 +635,13 @@ void LoginResponse::InternalSwap(LoginResponse* other) {
 }
 
 // @@protoc_insertion_point(namespace_scope)
-}  // namespace Example
+}  // namespace jy
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::Example::LoginRequest* Arena::CreateMaybeMessage< ::Example::LoginRequest >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::Example::LoginRequest >(arena);
+template<> PROTOBUF_NOINLINE ::jy::LoginRequest* Arena::CreateMaybeMessage< ::jy::LoginRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::jy::LoginRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::Example::LoginResponse* Arena::CreateMaybeMessage< ::Example::LoginResponse >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::Example::LoginResponse >(arena);
+template<> PROTOBUF_NOINLINE ::jy::LoginResponse* Arena::CreateMaybeMessage< ::jy::LoginResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::jy::LoginResponse >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

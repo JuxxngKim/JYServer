@@ -36,7 +36,7 @@ namespace jy
 		const bool result = Logger::GetInstance().Init(logLevel, dir, name);
 		if (!result) return false;
 
-		Example::PlayerData test;
+		jy::PlayerData test;
 		test.set_level(1);
 
 		S_LOG_INFO(0, 0, "Logger Init");

@@ -54,20 +54,20 @@ struct TableStruct_protocol_2eproto {
   static const ::PROTOBUF_NAMESPACE_ID::uint32 offsets[];
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_protocol_2eproto;
-namespace Example {
+namespace jy {
 class PlayerData;
 struct PlayerDataDefaultTypeInternal;
 extern PlayerDataDefaultTypeInternal _PlayerData_default_instance_;
-}  // namespace Example
+}  // namespace jy
 PROTOBUF_NAMESPACE_OPEN
-template<> ::Example::PlayerData* Arena::CreateMaybeMessage<::Example::PlayerData>(Arena*);
+template<> ::jy::PlayerData* Arena::CreateMaybeMessage<::jy::PlayerData>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
-namespace Example {
+namespace jy {
 
 // ===================================================================
 
 class PlayerData final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Example.PlayerData) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:jy.PlayerData) */ {
  public:
   inline PlayerData() : PlayerData(nullptr) {}
   ~PlayerData() override;
@@ -158,7 +158,7 @@ class PlayerData final :
   void InternalSwap(PlayerData* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "Example.PlayerData";
+    return "jy.PlayerData";
   }
   protected:
   explicit PlayerData(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -241,16 +241,16 @@ class PlayerData final :
   void _internal_set_level(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // .Example.PlayerState state = 4;
+  // .jy.PlayerState state = 4;
   void clear_state();
-  ::Example::PlayerState state() const;
-  void set_state(::Example::PlayerState value);
+  ::jy::PlayerState state() const;
+  void set_state(::jy::PlayerState value);
   private:
-  ::Example::PlayerState _internal_state() const;
-  void _internal_set_state(::Example::PlayerState value);
+  ::jy::PlayerState _internal_state() const;
+  void _internal_set_state(::jy::PlayerState value);
   public:
 
-  // @@protoc_insertion_point(class_scope:Example.PlayerData)
+  // @@protoc_insertion_point(class_scope:jy.PlayerData)
  private:
   class _Internal;
 
@@ -281,7 +281,7 @@ inline void PlayerData::clear_player_id() {
   player_id_.ClearToEmpty();
 }
 inline const std::string& PlayerData::player_id() const {
-  // @@protoc_insertion_point(field_get:Example.PlayerData.player_id)
+  // @@protoc_insertion_point(field_get:jy.PlayerData.player_id)
   return _internal_player_id();
 }
 template <typename ArgT0, typename... ArgT>
@@ -289,10 +289,10 @@ inline PROTOBUF_ALWAYS_INLINE
 void PlayerData::set_player_id(ArgT0&& arg0, ArgT... args) {
  
  player_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:Example.PlayerData.player_id)
+  // @@protoc_insertion_point(field_set:jy.PlayerData.player_id)
 }
 inline std::string* PlayerData::mutable_player_id() {
-  // @@protoc_insertion_point(field_mutable:Example.PlayerData.player_id)
+  // @@protoc_insertion_point(field_mutable:jy.PlayerData.player_id)
   return _internal_mutable_player_id();
 }
 inline const std::string& PlayerData::_internal_player_id() const {
@@ -307,7 +307,7 @@ inline std::string* PlayerData::_internal_mutable_player_id() {
   return player_id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* PlayerData::release_player_id() {
-  // @@protoc_insertion_point(field_release:Example.PlayerData.player_id)
+  // @@protoc_insertion_point(field_release:jy.PlayerData.player_id)
   return player_id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
 }
 inline void PlayerData::set_allocated_player_id(std::string* player_id) {
@@ -318,7 +318,7 @@ inline void PlayerData::set_allocated_player_id(std::string* player_id) {
   }
   player_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), player_id,
       GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set_allocated:Example.PlayerData.player_id)
+  // @@protoc_insertion_point(field_set_allocated:jy.PlayerData.player_id)
 }
 
 // string player_name = 2;
@@ -326,7 +326,7 @@ inline void PlayerData::clear_player_name() {
   player_name_.ClearToEmpty();
 }
 inline const std::string& PlayerData::player_name() const {
-  // @@protoc_insertion_point(field_get:Example.PlayerData.player_name)
+  // @@protoc_insertion_point(field_get:jy.PlayerData.player_name)
   return _internal_player_name();
 }
 template <typename ArgT0, typename... ArgT>
@@ -334,10 +334,10 @@ inline PROTOBUF_ALWAYS_INLINE
 void PlayerData::set_player_name(ArgT0&& arg0, ArgT... args) {
  
  player_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:Example.PlayerData.player_name)
+  // @@protoc_insertion_point(field_set:jy.PlayerData.player_name)
 }
 inline std::string* PlayerData::mutable_player_name() {
-  // @@protoc_insertion_point(field_mutable:Example.PlayerData.player_name)
+  // @@protoc_insertion_point(field_mutable:jy.PlayerData.player_name)
   return _internal_mutable_player_name();
 }
 inline const std::string& PlayerData::_internal_player_name() const {
@@ -352,7 +352,7 @@ inline std::string* PlayerData::_internal_mutable_player_name() {
   return player_name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* PlayerData::release_player_name() {
-  // @@protoc_insertion_point(field_release:Example.PlayerData.player_name)
+  // @@protoc_insertion_point(field_release:jy.PlayerData.player_name)
   return player_name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
 }
 inline void PlayerData::set_allocated_player_name(std::string* player_name) {
@@ -363,7 +363,7 @@ inline void PlayerData::set_allocated_player_name(std::string* player_name) {
   }
   player_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), player_name,
       GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set_allocated:Example.PlayerData.player_name)
+  // @@protoc_insertion_point(field_set_allocated:jy.PlayerData.player_name)
 }
 
 // int32 level = 3;
@@ -374,7 +374,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 PlayerData::_internal_level() const {
   return level_;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 PlayerData::level() const {
-  // @@protoc_insertion_point(field_get:Example.PlayerData.level)
+  // @@protoc_insertion_point(field_get:jy.PlayerData.level)
   return _internal_level();
 }
 inline void PlayerData::_internal_set_level(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -383,27 +383,27 @@ inline void PlayerData::_internal_set_level(::PROTOBUF_NAMESPACE_ID::int32 value
 }
 inline void PlayerData::set_level(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_level(value);
-  // @@protoc_insertion_point(field_set:Example.PlayerData.level)
+  // @@protoc_insertion_point(field_set:jy.PlayerData.level)
 }
 
-// .Example.PlayerState state = 4;
+// .jy.PlayerState state = 4;
 inline void PlayerData::clear_state() {
   state_ = 0;
 }
-inline ::Example::PlayerState PlayerData::_internal_state() const {
-  return static_cast< ::Example::PlayerState >(state_);
+inline ::jy::PlayerState PlayerData::_internal_state() const {
+  return static_cast< ::jy::PlayerState >(state_);
 }
-inline ::Example::PlayerState PlayerData::state() const {
-  // @@protoc_insertion_point(field_get:Example.PlayerData.state)
+inline ::jy::PlayerState PlayerData::state() const {
+  // @@protoc_insertion_point(field_get:jy.PlayerData.state)
   return _internal_state();
 }
-inline void PlayerData::_internal_set_state(::Example::PlayerState value) {
+inline void PlayerData::_internal_set_state(::jy::PlayerState value) {
   
   state_ = value;
 }
-inline void PlayerData::set_state(::Example::PlayerState value) {
+inline void PlayerData::set_state(::jy::PlayerState value) {
   _internal_set_state(value);
-  // @@protoc_insertion_point(field_set:Example.PlayerData.state)
+  // @@protoc_insertion_point(field_set:jy.PlayerData.state)
 }
 
 // repeated string items = 5;
@@ -417,66 +417,66 @@ inline void PlayerData::clear_items() {
   items_.Clear();
 }
 inline std::string* PlayerData::add_items() {
-  // @@protoc_insertion_point(field_add_mutable:Example.PlayerData.items)
+  // @@protoc_insertion_point(field_add_mutable:jy.PlayerData.items)
   return _internal_add_items();
 }
 inline const std::string& PlayerData::_internal_items(int index) const {
   return items_.Get(index);
 }
 inline const std::string& PlayerData::items(int index) const {
-  // @@protoc_insertion_point(field_get:Example.PlayerData.items)
+  // @@protoc_insertion_point(field_get:jy.PlayerData.items)
   return _internal_items(index);
 }
 inline std::string* PlayerData::mutable_items(int index) {
-  // @@protoc_insertion_point(field_mutable:Example.PlayerData.items)
+  // @@protoc_insertion_point(field_mutable:jy.PlayerData.items)
   return items_.Mutable(index);
 }
 inline void PlayerData::set_items(int index, const std::string& value) {
-  // @@protoc_insertion_point(field_set:Example.PlayerData.items)
+  // @@protoc_insertion_point(field_set:jy.PlayerData.items)
   items_.Mutable(index)->assign(value);
 }
 inline void PlayerData::set_items(int index, std::string&& value) {
-  // @@protoc_insertion_point(field_set:Example.PlayerData.items)
+  // @@protoc_insertion_point(field_set:jy.PlayerData.items)
   items_.Mutable(index)->assign(std::move(value));
 }
 inline void PlayerData::set_items(int index, const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   items_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:Example.PlayerData.items)
+  // @@protoc_insertion_point(field_set_char:jy.PlayerData.items)
 }
 inline void PlayerData::set_items(int index, const char* value, size_t size) {
   items_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:Example.PlayerData.items)
+  // @@protoc_insertion_point(field_set_pointer:jy.PlayerData.items)
 }
 inline std::string* PlayerData::_internal_add_items() {
   return items_.Add();
 }
 inline void PlayerData::add_items(const std::string& value) {
   items_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:Example.PlayerData.items)
+  // @@protoc_insertion_point(field_add:jy.PlayerData.items)
 }
 inline void PlayerData::add_items(std::string&& value) {
   items_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:Example.PlayerData.items)
+  // @@protoc_insertion_point(field_add:jy.PlayerData.items)
 }
 inline void PlayerData::add_items(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   items_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:Example.PlayerData.items)
+  // @@protoc_insertion_point(field_add_char:jy.PlayerData.items)
 }
 inline void PlayerData::add_items(const char* value, size_t size) {
   items_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:Example.PlayerData.items)
+  // @@protoc_insertion_point(field_add_pointer:jy.PlayerData.items)
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
 PlayerData::items() const {
-  // @@protoc_insertion_point(field_list:Example.PlayerData.items)
+  // @@protoc_insertion_point(field_list:jy.PlayerData.items)
   return items_;
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
 PlayerData::mutable_items() {
-  // @@protoc_insertion_point(field_mutable_list:Example.PlayerData.items)
+  // @@protoc_insertion_point(field_mutable_list:jy.PlayerData.items)
   return &items_;
 }
 
@@ -486,7 +486,7 @@ PlayerData::mutable_items() {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace Example
+}  // namespace jy
 
 // @@protoc_insertion_point(global_scope)
 

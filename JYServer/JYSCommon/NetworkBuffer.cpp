@@ -1,24 +1,46 @@
 ﻿#include "ProjectJY.h"
 #include "NetworkBuffer.h"
-#include "Crypt.h"
 #include "NetworkContext.h"
+#include "DefineConst.h"
+#include "DefineMacro.h"
+#include <tuple>
 
-namespace jy
+//#include "Crypto.h"
+
+namespace network
 {
-	NetworkBuffer::NetworkBuffer()
+	NetworkBuffer::NetworkBuffer(const bool& ignoreEncrypt)
 		: m_buffer(nullptr)
 		, m_bufferSize(0)
 		, m_writeSize(0)
 		, m_readSize(0)
+		, m_ignoreEncrypt{ ignoreEncrypt }
 	{
+		//re::CommonMetric::GetInstance()->IncrementObject("network_buffer");
 	}
 
 	NetworkBuffer::~NetworkBuffer()
 	{
-		JY_SAFE_DELETE_ARRAY(m_buffer);
+		if (m_buffer != nullptr)
+		{
+			delete[] m_buffer;
+			m_buffer = nullptr;
+		}
+		//re::CommonMetric::GetInstance()->DecrementObject("network_buffer");
 	}
 
-	bool NetworkBuffer::Write(void* src, int srcSize)
+	NetworkBuffer::NetworkBuffer(const PTR<NetworkBuffer>& other)
+	{
+		m_buffer = new char[other->m_bufferSize];
+		memcpy(m_buffer, other->m_buffer, other->m_bufferSize);
+		m_bufferSize = other->m_bufferSize;
+		m_writeSize = other->m_writeSize;
+		m_readSize = other->m_readSize;
+		m_ignoreEncrypt = other->m_ignoreEncrypt;
+		//re::CommonMetric::GetInstance()->IncrementObject("network_buffer");
+	}
+
+	bool NetworkBuffer::Write(void* src, int32_t srcSize)
 	{
 		if (src == nullptr || srcSize <= 0)
 		{
@@ -38,7 +60,7 @@ namespace jy
 		return true;
 	}
 
-	bool NetworkBuffer::CompleteWrite(int size)
+	bool NetworkBuffer::CompleteWrite(int32_t size)
 	{
 		if (size > 0)
 		{
@@ -54,7 +76,7 @@ namespace jy
 		return true;
 	}
 
-	bool NetworkBuffer::Read(void* dest, int destSize)
+	bool NetworkBuffer::Read(void* dest, int32_t destSize)
 	{
 		if (dest == nullptr || destSize <= 0)
 		{
@@ -63,7 +85,7 @@ namespace jy
 		}
 
 		char* src = GetData();
-		int srcSize = GetDataSize();
+		int32_t srcSize = GetDataSize();
 		if (src == nullptr || srcSize < destSize)
 		{
 			S_LOG_ERROR(0, 0, "failed - src");
@@ -76,7 +98,7 @@ namespace jy
 		return true;
 	}
 
-	bool NetworkBuffer::CompleteRead(int size)
+	bool NetworkBuffer::CompleteRead(int32_t size)
 	{
 		if (size > 0)
 		{
@@ -101,7 +123,7 @@ namespace jy
 		return m_buffer + m_readSize;
 	}
 
-	int NetworkBuffer::GetDataSize()
+	int32_t NetworkBuffer::GetDataSize()
 	{
 		if (m_buffer == nullptr) return 0;
 		if (m_bufferSize < m_writeSize) return 0;
@@ -118,33 +140,33 @@ namespace jy
 		return m_buffer + m_writeSize;
 	}
 
-	int NetworkBuffer::GetEmptySize()
+	int32_t NetworkBuffer::GetEmptySize()
 	{
 		if (m_buffer == nullptr) return 0;
 		if (m_bufferSize <= m_writeSize) return 0;
 
-		return (int)m_bufferSize - m_writeSize;
+		return (int32_t)m_bufferSize - m_writeSize;
 	}
 
-	bool NetworkBuffer::PacketToByte(int packetId, google::protobuf::Message& packet)
+	bool NetworkBuffer::PacketToByte(int32_t packetId, google::protobuf::Message& packet)
 	{
 		//이미 버퍼가 할당되어있으면 실패
 		if (m_buffer) return false;
 
 		//사이즈 체크
-		int messageSize = packet.ByteSizeLong();
+		int32_t messageSize = static_cast<int32_t>(packet.ByteSizeLong());
 		if (messageSize < 0)
 		{
-			S_LOG_ERROR(0, 0, "packet size under(id : %, size : %)", packetId, messageSize);
+			S_LOG_ERROR(0, 0, "packet size under : [id:%, size:%]", packetId, messageSize);
 			messageSize = 0;
 		}
-		else if (messageSize >= g_iPacketBodySize)
+		else if (messageSize >= g_PacketBodySize)
 		{
-			S_LOG_ERROR(0, 0, "packet size over(id : %, size : %)", packetId, messageSize);
+			S_LOG_ERROR(0, 0, "packet size over : [id:%, size:%]", packetId, messageSize);
 		}
 
 		//버퍼 할당
-		m_bufferSize = g_iPacketHeaderSize + messageSize;
+		m_bufferSize = g_PacketHeaderSize + messageSize;
 		m_buffer = new char[m_bufferSize];
 
 		//데이터 복사
@@ -161,7 +183,6 @@ namespace jy
 		{
 			auto pos = GetEmpty();
 			packet.SerializeToArray(pos, messageSize);
-			Crypt::Convert(pos, messageSize);
 
 			CompleteWrite(messageSize);
 		}
@@ -169,28 +190,28 @@ namespace jy
 		return true;
 	}
 
-	PacketInfo NetworkBuffer::ByteToPacket()
+	PacketInfo NetworkBuffer::ByteToPacket(const bool& isEncrypted, const unsigned char* nonce)
 	{
 		char* packet = GetData();
-		int packetSize = GetDataSize();
+		int32_t packetSize = GetDataSize();
 
 		//데이터가 패킷최소사이즈보다 큰 경우인지 체크
-		if (packetSize >= g_iPacketHeaderSize)
+		if (packetSize >= g_PacketHeaderSize)
 		{
-			int messageSize = ntohl(*(u_long*)(packet)) - sizeof(u_long);
-			int messageID = ntohl(*(u_long*)(packet + sizeof(u_long)));
+			int32_t messageSize = ntohl(*(u_long*)(packet)) - sizeof(u_long);
+			int32_t messageID = ntohl(*(u_long*)(packet + sizeof(u_long)));
 
 			//데이터 사이즈 예외 체크
-			if (messageSize >= 0 && messageSize <= packetSize - g_iPacketHeaderSize)
+			if (messageSize >= 0 && messageSize <= packetSize - g_PacketHeaderSize)
 			{
 				//읽기 처리
-				CompleteRead(messageSize + g_iPacketHeaderSize);
+				CompleteRead(messageSize + g_PacketHeaderSize);
+
+				// 복호화
+				Decrypt(packet + g_PacketHeaderSize, isEncrypted, nonce, messageSize);
 
 				//받기 완료 처리
-				Crypt::Convert(packet + g_iPacketHeaderSize, messageSize);
-
-				//받기 완료 처리
-				return std::forward_as_tuple(messageID, packet + g_iPacketHeaderSize, messageSize);
+				return std::forward_as_tuple(messageID, packet + g_PacketHeaderSize, messageSize);
 			}
 		}
 
@@ -214,7 +235,7 @@ namespace jy
 			//버퍼 축소
 			if (m_bufferSize > DEFAULT_CAPACITY_SIZE)
 			{
-				JY_SAFE_DELETE_ARRAY(m_buffer);
+				S_SAFE_DELETE_ARRAY(m_buffer);
 
 				m_bufferSize = DEFAULT_CAPACITY_SIZE;
 				m_buffer = new char[m_bufferSize];
@@ -226,7 +247,7 @@ namespace jy
 		}
 
 		//빈공간 체크
-		int emptySize = GetEmptySize();
+		int32_t emptySize = GetEmptySize();
 		if (emptySize < MIN_CAPACITY_SIZE)
 		{
 			if (emptySize + m_readSize >= MIN_CAPACITY_SIZE)
@@ -250,7 +271,7 @@ namespace jy
 				m_writeSize -= m_readSize;
 				m_readSize = 0;
 
-				JY_SAFE_DELETE_ARRAY(temp);
+				S_SAFE_DELETE_ARRAY(temp);
 			}
 		}
 
@@ -260,5 +281,40 @@ namespace jy
 		if (wsabuf.len <= 0) return false;
 
 		return true;
+	}
+
+	bool NetworkBuffer::ReadyToSend(WSABUF& wsabuf, int32_t total, std::deque<PTR<NetworkBuffer>>& datas)
+	{
+		if (total <= 0) return false;
+
+		//이미 버퍼가 할당되어있으면 실패
+		if (m_buffer) return false;
+
+		//버퍼 할당
+		m_bufferSize = total;
+		m_buffer = new char[m_bufferSize];
+
+		for (auto& data : datas)
+		{
+			//데이터 복사
+			Write(data->GetData(), data->GetDataSize());
+		}
+
+		wsabuf.buf = GetData();
+		wsabuf.len = GetDataSize();
+
+		return true;
+	}
+
+	void NetworkBuffer::Encrypt(const bool& isEncrypted, const unsigned char* nonce)
+	{
+		if (m_ignoreEncrypt || !isEncrypted || nonce == nullptr) return;
+		//util::Crypto::Convert(GetData() + g_PacketHeaderSize, GetDataSize() - g_PacketHeaderSize, nonce);
+	}
+
+	void NetworkBuffer::Decrypt(char* buffer, const bool& isEncrypted, const unsigned char* nonce, const int32_t& messageSize)
+	{
+		if (m_ignoreEncrypt || !isEncrypted || nonce == nullptr) return;
+		//util::Crypto::Convert(buffer, messageSize, nonce);
 	}
 }

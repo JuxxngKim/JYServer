@@ -16,23 +16,24 @@
 #include <google/protobuf/port_def.inc>
 
 PROTOBUF_PRAGMA_INIT_SEG
-namespace Example {
-}  // namespace Example
-static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_enum_2eproto[1];
+namespace jy {
+}  // namespace jy
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_enum_2eproto[2];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_enum_2eproto = nullptr;
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_enum_2eproto::offsets[1] = {};
 static constexpr ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema* schemas = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::Message* const* file_default_instances = nullptr;
 
 const char descriptor_table_protodef_enum_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\nenum.proto\022\007Example*g\n\013PlayerState\022\021\n\r"
-  "STATE_UNKNOWN\020\000\022\016\n\nSTATE_IDLE\020\001\022\020\n\014STATE"
-  "_MOVING\020\002\022\023\n\017STATE_ATTACKING\020\003\022\016\n\nSTATE_"
-  "DEAD\020\004b\006proto3"
+  "\n\nenum.proto\022\002jy*2\n\nEMessageID\022\021\n\rNET_AL"
+  "IVE_REQ\020\000\022\021\n\rNET_ALIVE_ACK\020\002*g\n\013PlayerSt"
+  "ate\022\021\n\rSTATE_UNKNOWN\020\000\022\016\n\nSTATE_IDLE\020\001\022\020"
+  "\n\014STATE_MOVING\020\002\022\023\n\017STATE_ATTACKING\020\003\022\016\n"
+  "\nSTATE_DEAD\020\004b\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_enum_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_enum_2eproto = {
-  false, false, 134, descriptor_table_protodef_enum_2eproto, "enum.proto", 
+  false, false, 181, descriptor_table_protodef_enum_2eproto, "enum.proto", 
   &descriptor_table_enum_2eproto_once, nullptr, 0, 0,
   schemas, file_default_instances, TableStruct_enum_2eproto::offsets,
   nullptr, file_level_enum_descriptors_enum_2eproto, file_level_service_descriptors_enum_2eproto,
@@ -43,10 +44,24 @@ PROTOBUF_ATTRIBUTE_WEAK const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable
 
 // Force running AddDescriptors() at dynamic initialization time.
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY static ::PROTOBUF_NAMESPACE_ID::internal::AddDescriptorsRunner dynamic_init_dummy_enum_2eproto(&descriptor_table_enum_2eproto);
-namespace Example {
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* PlayerState_descriptor() {
+namespace jy {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EMessageID_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_enum_2eproto);
   return file_level_enum_descriptors_enum_2eproto[0];
+}
+bool EMessageID_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* PlayerState_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_enum_2eproto);
+  return file_level_enum_descriptors_enum_2eproto[1];
 }
 bool PlayerState_IsValid(int value) {
   switch (value) {
@@ -63,7 +78,7 @@ bool PlayerState_IsValid(int value) {
 
 
 // @@protoc_insertion_point(namespace_scope)
-}  // namespace Example
+}  // namespace jy
 PROTOBUF_NAMESPACE_OPEN
 PROTOBUF_NAMESPACE_CLOSE
 

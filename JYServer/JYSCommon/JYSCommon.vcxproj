@@ -172,8 +172,16 @@
     <ClInclude Include="Logger.h" />
     <ClInclude Include="NetworkBuffer.h" />
     <ClInclude Include="NetworkContext.h" />
+    <ClInclude Include="NetworkEvent.h" />
+    <ClInclude Include="NetworkHost.h" />
+    <ClInclude Include="NetworkManager.h" />
+    <ClInclude Include="NetworkTask.h" />
+    <ClInclude Include="PacketWrapper.h" />
     <ClInclude Include="ProjectJY.h" />
+    <ClInclude Include="SDateTime.h" />
     <ClInclude Include="Singleton.h" />
+    <ClInclude Include="ThreadCollector.h" />
+    <ClInclude Include="TimeUtil.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Common\Tool\ProtocolGenerator\generated\enum.pb.cc">
@@ -192,10 +200,17 @@
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="NetworkBuffer.cpp" />
     <ClCompile Include="NetworkContext.cpp" />
+    <ClCompile Include="NetworkEvent.cpp" />
+    <ClCompile Include="NetworkHost.cpp" />
+    <ClCompile Include="NetworkManager.cpp" />
+    <ClCompile Include="NetworkTask.cpp" />
     <ClCompile Include="ProjectJY.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="SDateTime.cpp" />
+    <ClCompile Include="ThreadCollector.cpp" />
+    <ClCompile Include="TimeUtil.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

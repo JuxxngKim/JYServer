@@ -1,10 +1,13 @@
 ﻿#pragma once
 
 //MaxPacket
-const int32_t			g_iMaxPacketSize = 48 * 1024;
-const int32_t			g_iPacketHeaderSize = 8;
-const int32_t			g_iPacketBodySize = g_iMaxPacketSize - g_iPacketHeaderSize;
-const int32_t			g_iPacketDefaultSize = 1000;
+const int32_t			g_MaxPacketSize = 48 * 1024;
+const int32_t			g_PacketHeaderSize = 8;
+const int32_t			g_PacketBodySize = g_MaxPacketSize - g_PacketHeaderSize;
+const int32_t			g_PacketDefaultSize = 1000;
+
+const int32_t			NETWORK_ALIVE_MS = 15000;
+const int32_t			NETWORK_TIMEOUT_MS = NETWORK_ALIVE_MS * 3;
 
 //HeroDeck
 const int32_t			g_iHeroInDeckCount = 4;

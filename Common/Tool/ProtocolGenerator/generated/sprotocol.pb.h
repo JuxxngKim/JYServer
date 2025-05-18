@@ -54,24 +54,24 @@ struct TableStruct_sprotocol_2eproto {
   static const ::PROTOBUF_NAMESPACE_ID::uint32 offsets[];
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sprotocol_2eproto;
-namespace Example {
+namespace jy {
 class LoginRequest;
 struct LoginRequestDefaultTypeInternal;
 extern LoginRequestDefaultTypeInternal _LoginRequest_default_instance_;
 class LoginResponse;
 struct LoginResponseDefaultTypeInternal;
 extern LoginResponseDefaultTypeInternal _LoginResponse_default_instance_;
-}  // namespace Example
+}  // namespace jy
 PROTOBUF_NAMESPACE_OPEN
-template<> ::Example::LoginRequest* Arena::CreateMaybeMessage<::Example::LoginRequest>(Arena*);
-template<> ::Example::LoginResponse* Arena::CreateMaybeMessage<::Example::LoginResponse>(Arena*);
+template<> ::jy::LoginRequest* Arena::CreateMaybeMessage<::jy::LoginRequest>(Arena*);
+template<> ::jy::LoginResponse* Arena::CreateMaybeMessage<::jy::LoginResponse>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
-namespace Example {
+namespace jy {
 
 // ===================================================================
 
 class LoginRequest final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Example.LoginRequest) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:jy.LoginRequest) */ {
  public:
   inline LoginRequest() : LoginRequest(nullptr) {}
   ~LoginRequest() override;
@@ -162,7 +162,7 @@ class LoginRequest final :
   void InternalSwap(LoginRequest* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "Example.LoginRequest";
+    return "jy.LoginRequest";
   }
   protected:
   explicit LoginRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -209,7 +209,7 @@ class LoginRequest final :
   std::string* _internal_mutable_password_hash();
   public:
 
-  // @@protoc_insertion_point(class_scope:Example.LoginRequest)
+  // @@protoc_insertion_point(class_scope:jy.LoginRequest)
  private:
   class _Internal;
 
@@ -224,7 +224,7 @@ class LoginRequest final :
 // -------------------------------------------------------------------
 
 class LoginResponse final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Example.LoginResponse) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:jy.LoginResponse) */ {
  public:
   inline LoginResponse() : LoginResponse(nullptr) {}
   ~LoginResponse() override;
@@ -315,7 +315,7 @@ class LoginResponse final :
   void InternalSwap(LoginResponse* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "Example.LoginResponse";
+    return "jy.LoginResponse";
   }
   protected:
   explicit LoginResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -349,23 +349,23 @@ class LoginResponse final :
   std::string* _internal_mutable_error_message();
   public:
 
-  // .Example.PlayerData player_data = 3;
+  // .jy.PlayerData player_data = 3;
   bool has_player_data() const;
   private:
   bool _internal_has_player_data() const;
   public:
   void clear_player_data();
-  const ::Example::PlayerData& player_data() const;
-  PROTOBUF_FUTURE_MUST_USE_RESULT ::Example::PlayerData* release_player_data();
-  ::Example::PlayerData* mutable_player_data();
-  void set_allocated_player_data(::Example::PlayerData* player_data);
+  const ::jy::PlayerData& player_data() const;
+  PROTOBUF_FUTURE_MUST_USE_RESULT ::jy::PlayerData* release_player_data();
+  ::jy::PlayerData* mutable_player_data();
+  void set_allocated_player_data(::jy::PlayerData* player_data);
   private:
-  const ::Example::PlayerData& _internal_player_data() const;
-  ::Example::PlayerData* _internal_mutable_player_data();
+  const ::jy::PlayerData& _internal_player_data() const;
+  ::jy::PlayerData* _internal_mutable_player_data();
   public:
   void unsafe_arena_set_allocated_player_data(
-      ::Example::PlayerData* player_data);
-  ::Example::PlayerData* unsafe_arena_release_player_data();
+      ::jy::PlayerData* player_data);
+  ::jy::PlayerData* unsafe_arena_release_player_data();
 
   // bool success = 1;
   void clear_success();
@@ -376,7 +376,7 @@ class LoginResponse final :
   void _internal_set_success(bool value);
   public:
 
-  // @@protoc_insertion_point(class_scope:Example.LoginResponse)
+  // @@protoc_insertion_point(class_scope:jy.LoginResponse)
  private:
   class _Internal;
 
@@ -384,7 +384,7 @@ class LoginResponse final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr error_message_;
-  ::Example::PlayerData* player_data_;
+  ::jy::PlayerData* player_data_;
   bool success_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sprotocol_2eproto;
@@ -405,7 +405,7 @@ inline void LoginRequest::clear_user_id() {
   user_id_.ClearToEmpty();
 }
 inline const std::string& LoginRequest::user_id() const {
-  // @@protoc_insertion_point(field_get:Example.LoginRequest.user_id)
+  // @@protoc_insertion_point(field_get:jy.LoginRequest.user_id)
   return _internal_user_id();
 }
 template <typename ArgT0, typename... ArgT>
@@ -413,10 +413,10 @@ inline PROTOBUF_ALWAYS_INLINE
 void LoginRequest::set_user_id(ArgT0&& arg0, ArgT... args) {
  
  user_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:Example.LoginRequest.user_id)
+  // @@protoc_insertion_point(field_set:jy.LoginRequest.user_id)
 }
 inline std::string* LoginRequest::mutable_user_id() {
-  // @@protoc_insertion_point(field_mutable:Example.LoginRequest.user_id)
+  // @@protoc_insertion_point(field_mutable:jy.LoginRequest.user_id)
   return _internal_mutable_user_id();
 }
 inline const std::string& LoginRequest::_internal_user_id() const {
@@ -431,7 +431,7 @@ inline std::string* LoginRequest::_internal_mutable_user_id() {
   return user_id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* LoginRequest::release_user_id() {
-  // @@protoc_insertion_point(field_release:Example.LoginRequest.user_id)
+  // @@protoc_insertion_point(field_release:jy.LoginRequest.user_id)
   return user_id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
 }
 inline void LoginRequest::set_allocated_user_id(std::string* user_id) {
@@ -442,7 +442,7 @@ inline void LoginRequest::set_allocated_user_id(std::string* user_id) {
   }
   user_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), user_id,
       GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set_allocated:Example.LoginRequest.user_id)
+  // @@protoc_insertion_point(field_set_allocated:jy.LoginRequest.user_id)
 }
 
 // string password_hash = 2;
@@ -450,7 +450,7 @@ inline void LoginRequest::clear_password_hash() {
   password_hash_.ClearToEmpty();
 }
 inline const std::string& LoginRequest::password_hash() const {
-  // @@protoc_insertion_point(field_get:Example.LoginRequest.password_hash)
+  // @@protoc_insertion_point(field_get:jy.LoginRequest.password_hash)
   return _internal_password_hash();
 }
 template <typename ArgT0, typename... ArgT>
@@ -458,10 +458,10 @@ inline PROTOBUF_ALWAYS_INLINE
 void LoginRequest::set_password_hash(ArgT0&& arg0, ArgT... args) {
  
  password_hash_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:Example.LoginRequest.password_hash)
+  // @@protoc_insertion_point(field_set:jy.LoginRequest.password_hash)
 }
 inline std::string* LoginRequest::mutable_password_hash() {
-  // @@protoc_insertion_point(field_mutable:Example.LoginRequest.password_hash)
+  // @@protoc_insertion_point(field_mutable:jy.LoginRequest.password_hash)
   return _internal_mutable_password_hash();
 }
 inline const std::string& LoginRequest::_internal_password_hash() const {
@@ -476,7 +476,7 @@ inline std::string* LoginRequest::_internal_mutable_password_hash() {
   return password_hash_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* LoginRequest::release_password_hash() {
-  // @@protoc_insertion_point(field_release:Example.LoginRequest.password_hash)
+  // @@protoc_insertion_point(field_release:jy.LoginRequest.password_hash)
   return password_hash_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
 }
 inline void LoginRequest::set_allocated_password_hash(std::string* password_hash) {
@@ -487,7 +487,7 @@ inline void LoginRequest::set_allocated_password_hash(std::string* password_hash
   }
   password_hash_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), password_hash,
       GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set_allocated:Example.LoginRequest.password_hash)
+  // @@protoc_insertion_point(field_set_allocated:jy.LoginRequest.password_hash)
 }
 
 // -------------------------------------------------------------------
@@ -502,7 +502,7 @@ inline bool LoginResponse::_internal_success() const {
   return success_;
 }
 inline bool LoginResponse::success() const {
-  // @@protoc_insertion_point(field_get:Example.LoginResponse.success)
+  // @@protoc_insertion_point(field_get:jy.LoginResponse.success)
   return _internal_success();
 }
 inline void LoginResponse::_internal_set_success(bool value) {
@@ -511,7 +511,7 @@ inline void LoginResponse::_internal_set_success(bool value) {
 }
 inline void LoginResponse::set_success(bool value) {
   _internal_set_success(value);
-  // @@protoc_insertion_point(field_set:Example.LoginResponse.success)
+  // @@protoc_insertion_point(field_set:jy.LoginResponse.success)
 }
 
 // string error_message = 2;
@@ -519,7 +519,7 @@ inline void LoginResponse::clear_error_message() {
   error_message_.ClearToEmpty();
 }
 inline const std::string& LoginResponse::error_message() const {
-  // @@protoc_insertion_point(field_get:Example.LoginResponse.error_message)
+  // @@protoc_insertion_point(field_get:jy.LoginResponse.error_message)
   return _internal_error_message();
 }
 template <typename ArgT0, typename... ArgT>
@@ -527,10 +527,10 @@ inline PROTOBUF_ALWAYS_INLINE
 void LoginResponse::set_error_message(ArgT0&& arg0, ArgT... args) {
  
  error_message_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:Example.LoginResponse.error_message)
+  // @@protoc_insertion_point(field_set:jy.LoginResponse.error_message)
 }
 inline std::string* LoginResponse::mutable_error_message() {
-  // @@protoc_insertion_point(field_mutable:Example.LoginResponse.error_message)
+  // @@protoc_insertion_point(field_mutable:jy.LoginResponse.error_message)
   return _internal_mutable_error_message();
 }
 inline const std::string& LoginResponse::_internal_error_message() const {
@@ -545,7 +545,7 @@ inline std::string* LoginResponse::_internal_mutable_error_message() {
   return error_message_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* LoginResponse::release_error_message() {
-  // @@protoc_insertion_point(field_release:Example.LoginResponse.error_message)
+  // @@protoc_insertion_point(field_release:jy.LoginResponse.error_message)
   return error_message_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
 }
 inline void LoginResponse::set_allocated_error_message(std::string* error_message) {
@@ -556,27 +556,27 @@ inline void LoginResponse::set_allocated_error_message(std::string* error_messag
   }
   error_message_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), error_message,
       GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set_allocated:Example.LoginResponse.error_message)
+  // @@protoc_insertion_point(field_set_allocated:jy.LoginResponse.error_message)
 }
 
-// .Example.PlayerData player_data = 3;
+// .jy.PlayerData player_data = 3;
 inline bool LoginResponse::_internal_has_player_data() const {
   return this != internal_default_instance() && player_data_ != nullptr;
 }
 inline bool LoginResponse::has_player_data() const {
   return _internal_has_player_data();
 }
-inline const ::Example::PlayerData& LoginResponse::_internal_player_data() const {
-  const ::Example::PlayerData* p = player_data_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Example::PlayerData&>(
-      ::Example::_PlayerData_default_instance_);
+inline const ::jy::PlayerData& LoginResponse::_internal_player_data() const {
+  const ::jy::PlayerData* p = player_data_;
+  return p != nullptr ? *p : reinterpret_cast<const ::jy::PlayerData&>(
+      ::jy::_PlayerData_default_instance_);
 }
-inline const ::Example::PlayerData& LoginResponse::player_data() const {
-  // @@protoc_insertion_point(field_get:Example.LoginResponse.player_data)
+inline const ::jy::PlayerData& LoginResponse::player_data() const {
+  // @@protoc_insertion_point(field_get:jy.LoginResponse.player_data)
   return _internal_player_data();
 }
 inline void LoginResponse::unsafe_arena_set_allocated_player_data(
-    ::Example::PlayerData* player_data) {
+    ::jy::PlayerData* player_data) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(player_data_);
   }
@@ -586,37 +586,37 @@ inline void LoginResponse::unsafe_arena_set_allocated_player_data(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Example.LoginResponse.player_data)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:jy.LoginResponse.player_data)
 }
-inline ::Example::PlayerData* LoginResponse::release_player_data() {
+inline ::jy::PlayerData* LoginResponse::release_player_data() {
   
-  ::Example::PlayerData* temp = player_data_;
+  ::jy::PlayerData* temp = player_data_;
   player_data_ = nullptr;
   if (GetArenaForAllocation() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::Example::PlayerData* LoginResponse::unsafe_arena_release_player_data() {
-  // @@protoc_insertion_point(field_release:Example.LoginResponse.player_data)
+inline ::jy::PlayerData* LoginResponse::unsafe_arena_release_player_data() {
+  // @@protoc_insertion_point(field_release:jy.LoginResponse.player_data)
   
-  ::Example::PlayerData* temp = player_data_;
+  ::jy::PlayerData* temp = player_data_;
   player_data_ = nullptr;
   return temp;
 }
-inline ::Example::PlayerData* LoginResponse::_internal_mutable_player_data() {
+inline ::jy::PlayerData* LoginResponse::_internal_mutable_player_data() {
   
   if (player_data_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Example::PlayerData>(GetArenaForAllocation());
+    auto* p = CreateMaybeMessage<::jy::PlayerData>(GetArenaForAllocation());
     player_data_ = p;
   }
   return player_data_;
 }
-inline ::Example::PlayerData* LoginResponse::mutable_player_data() {
-  // @@protoc_insertion_point(field_mutable:Example.LoginResponse.player_data)
+inline ::jy::PlayerData* LoginResponse::mutable_player_data() {
+  // @@protoc_insertion_point(field_mutable:jy.LoginResponse.player_data)
   return _internal_mutable_player_data();
 }
-inline void LoginResponse::set_allocated_player_data(::Example::PlayerData* player_data) {
+inline void LoginResponse::set_allocated_player_data(::jy::PlayerData* player_data) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(player_data_);
@@ -635,7 +635,7 @@ inline void LoginResponse::set_allocated_player_data(::Example::PlayerData* play
     
   }
   player_data_ = player_data;
-  // @@protoc_insertion_point(field_set_allocated:Example.LoginResponse.player_data)
+  // @@protoc_insertion_point(field_set_allocated:jy.LoginResponse.player_data)
 }
 
 #ifdef __GNUC__
@@ -646,7 +646,7 @@ inline void LoginResponse::set_allocated_player_data(::Example::PlayerData* play
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace Example
+}  // namespace jy
 
 // @@protoc_insertion_point(global_scope)
 

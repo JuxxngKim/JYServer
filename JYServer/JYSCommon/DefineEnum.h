@@ -18,4 +18,11 @@ namespace jy
 		EquipItem,
 		Max,
 	};
+
+	enum class ETraceMessageLevel
+	{
+		Disable = 0,
+		HighLevel = 1,
+		LowLevel = 2,
+	};
 } 

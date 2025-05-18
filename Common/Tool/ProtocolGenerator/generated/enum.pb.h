@@ -54,8 +54,33 @@ struct TableStruct_enum_2eproto {
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_enum_2eproto;
 PROTOBUF_NAMESPACE_OPEN
 PROTOBUF_NAMESPACE_CLOSE
-namespace Example {
+namespace jy {
 
+enum EMessageID : int {
+  NET_ALIVE_REQ = 0,
+  NET_ALIVE_ACK = 2,
+  EMessageID_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  EMessageID_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool EMessageID_IsValid(int value);
+constexpr EMessageID EMessageID_MIN = NET_ALIVE_REQ;
+constexpr EMessageID EMessageID_MAX = NET_ALIVE_ACK;
+constexpr int EMessageID_ARRAYSIZE = EMessageID_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EMessageID_descriptor();
+template<typename T>
+inline const std::string& EMessageID_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, EMessageID>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function EMessageID_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    EMessageID_descriptor(), enum_t_value);
+}
+inline bool EMessageID_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EMessageID* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EMessageID>(
+    EMessageID_descriptor(), name, value);
+}
 enum PlayerState : int {
   STATE_UNKNOWN = 0,
   STATE_IDLE = 1,
@@ -102,14 +127,19 @@ inline bool PlayerState_Parse(
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace Example
+}  // namespace jy
 
 PROTOBUF_NAMESPACE_OPEN
 
-template <> struct is_proto_enum< ::Example::PlayerState> : ::std::true_type {};
+template <> struct is_proto_enum< ::jy::EMessageID> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::Example::PlayerState>() {
-  return ::Example::PlayerState_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::jy::EMessageID>() {
+  return ::jy::EMessageID_descriptor();
+}
+template <> struct is_proto_enum< ::jy::PlayerState> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::jy::PlayerState>() {
+  return ::jy::PlayerState_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE
