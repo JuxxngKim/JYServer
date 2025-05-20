@@ -143,4 +143,17 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Common\Tool\ProtocolGenerator\protos\protocol.proto">
+      <Filter>소스 파일\protobuf</Filter>
+    </None>
+    <None Include="..\..\Common\Tool\ProtocolGenerator\protos\enum.proto">
+      <Filter>소스 파일\protobuf</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\Common\Tool\ProtocolGenerator\protos\sprotocol.proto">
+      <Filter>소스 파일\protobuf</Filter>
+    </CustomBuild>
+  </ItemGroup>
 </Project>

@@ -4,7 +4,7 @@
 
 #include "NetworkManager.h"
 #include "TimeUtil.h"
-#include "MessageCreator.h"
+//#include "MessageCreator.h"
 #include "DefineConst.h"
 
 namespace network
@@ -15,12 +15,12 @@ namespace network
 		, m_encrypted{ false }
 		, m_nonceAssigned{ false }
 	{
-		//re::CommonMetric::GetInstance()->IncrementObject("network_host");
+		//jy::CommonMetric::GetInstance().IncrementObject("network_host");
 	}
 
 	NetworkHost::~NetworkHost()
 	{
-		//re::CommonMetric::GetInstance()->DecrementObject("network_host");
+		//jy::CommonMetric::GetInstance().DecrementObject("network_host");
 	}
 
 	ENetworkHost NetworkHost::GetHostType() const
@@ -102,13 +102,13 @@ namespace network
 		{
 		case jy::NET_CONNECT:
 		{
-			auto msg = NEW(re::NetConnect);
+			auto msg = NEW(jy::NetConnect);
 			msg->ParseFromArray(messageBuffer, messageSize);
 
 			//시간설정
-			m_timeoutMs = msg->TimeoutMS();
+			m_timeoutMs = msg->timeoutms();
 
-			int64_t currentTimeMs = util::TimeUtil::GetInstance()->FindTickKSTMs();
+			int64_t currentTimeMs = util::TimeUtil::GetInstance().FindTickKSTMs();
 			m_checkTimeMs = currentTimeMs + m_timeoutMs;
 
 			ExecuteCallback(messageID, msg);
@@ -117,36 +117,36 @@ namespace network
 		case jy::NET_ALIVE_REQ:
 		{
 			//시간설정
-			int64_t currentTimeMs = util::TimeUtil::GetInstance()->FindTickKSTMs();
+			int64_t currentTimeMs = util::TimeUtil::GetInstance().FindTickKSTMs();
 			m_checkTimeMs = currentTimeMs + m_timeoutMs;
 
-			auto req = NEW(re::NetAliveReq);
+			auto req = NEW(jy::NetAliveReq);
 			req->ParseFromArray(messageBuffer, messageSize);
 
 			//ExecuteCallback(messageID, req);
 
 			//alive
-			auto ack = NEW(re::NetAliveAck);
-			ack->set_RequestMS(req->RequestMS());
-			ack->set_ResponseMS(util::TimeUtil::GetInstance()->FindUTCMs());
+			auto ack = NEW(jy::NetAliveAck);
+			ack->set_requestms(req->requestms());
+			ack->set_responsems(util::TimeUtil::GetInstance().FindUTCMs());
 
-			NetworkManager::GetInstance()->Send(m_hostId, ack->MessageID(), ack);
+			NetworkManager::GetInstance().Send(m_hostId, ack->messageid(), ack);
 
 			break;
 		}
-		case re::NET_ALIVE_ACK:
+		case jy::NET_ALIVE_ACK:
 		{
 			//시간설정
-			int64_t currentTimeMs = util::TimeUtil::GetInstance()->FindTickKSTMs();
+			int64_t currentTimeMs = util::TimeUtil::GetInstance().FindTickKSTMs();
 			m_checkTimeMs = currentTimeMs + m_timeoutMs;
 			break;
 		}
 		default:
 		{
-			/*auto msg = re::MessageCreator::GetInstance()->CreateMessage(messageID);
+			/*auto msg = jy::MessageCreator::GetInstance().CreateMessage(messageID);
 			if (msg == nullptr)
 			{
-				S_LOG_ERROR(m_hostId, 0, "CreateMessage : [id:%, name:%]", messageID, re::EMessageID_Name((re::EMessageID)messageID));
+				S_LOG_ERROR(m_hostId, 0, "CreateMessage : [id:%, name:%]", messageID, jy::EMessageID_Name((jy::EMessageID)messageID));
 				return;
 			}
 
@@ -157,7 +157,7 @@ namespace network
 		}
 		}
 
-		//re::CommonMetric::GetInstance()->IncrementPacketReceiveCounter(messageID);
+		//jy::CommonMetric::GetInstance().IncrementPacketReceiveCounter(messageID);
 	}
 
 	//process
@@ -187,9 +187,9 @@ namespace network
 				m_aliveTimeMs = currentTimeMs + NETWORK_ALIVE_MS;
 
 				//alive
-				auto msg = NEW(re::NetAliveReq);
-				msg->set_RequestMS(util::TimeUtil::GetInstance()->FindUTCMs());
-				NetworkManager::GetInstance()->Send(m_hostId, msg->MessageID(), msg);
+				auto msg = NEW(jy::NetAliveReq);
+				msg->set_requestms(util::TimeUtil::GetInstance().FindUTCMs());
+				NetworkManager::GetInstance().Send(m_hostId, msg->messageid(), msg);
 			}
 		}
 
@@ -198,7 +198,7 @@ namespace network
 
 	void NetworkHost::Refresh()
 	{
-		int64_t currentTimeMs = util::TimeUtil::GetInstance()->FindTickKSTMs();
+		int64_t currentTimeMs = util::TimeUtil::GetInstance().FindTickKSTMs();
 		m_checkTimeMs = currentTimeMs + m_timeoutMs;
 		m_aliveTimeMs = currentTimeMs + NETWORK_ALIVE_MS;
 	}
@@ -236,7 +236,7 @@ namespace network
 		auto task = NEW(NetworkTaskConnect);
 		task->m_owner = this;
 
-		if (NetworkManager::GetInstance()->WorkerPush(task.get()))
+		if (NetworkManager::GetInstance().WorkerPush(task.get()))
 		{
 			m_tasks.emplace_back(task);
 		}
@@ -252,7 +252,7 @@ namespace network
 		auto task = NEW(NetworkTaskReceive);
 		task->m_owner = this;
 
-		if (NetworkManager::GetInstance()->WorkerPush(task.get()))
+		if (NetworkManager::GetInstance().WorkerPush(task.get()))
 		{
 			m_tasks.emplace_back(task);
 		}
@@ -296,10 +296,10 @@ namespace network
 			return;
 		}
 
-		// 서버시작 이벤트 발생
-		auto msg = NEW(re::InternalEventTick);
-		msg->set_EventType(static_cast<int32_t>(re::EEventType::ReadyServer));
-		ExecuteCallback(msg->MessageID(), msg);
+		//// 서버시작 이벤트 발생
+		//auto msg = NEW(jy::InternalEventTick);
+		//msg->set_EventType(static_cast<int32_t>(jy::EEventType::ReadyServer));
+		//ExecuteCallback(msg->MessageID(), msg);
 
 		//accept 요청
 		for (int32_t n = 0; n < MAX_ACCEPT_COUNT; ++n)
@@ -307,7 +307,7 @@ namespace network
 			auto task = NEW(NetworkTaskAccept);
 			task->m_owner = this;
 
-			if (NetworkManager::GetInstance()->WorkerPush(task.get()))
+			if (NetworkManager::GetInstance().WorkerPush(task.get()))
 			{
 				m_tasks.emplace_back(task);
 			}
@@ -328,23 +328,23 @@ namespace network
 		SetSocket(sock);
 
 		//접속메세지 보냄
-		auto msg = NEW(re::NetConnect);
-		msg->set_ConnectIP(m_ip);
-		msg->set_ConnectPort(m_port);
-		msg->set_TimeoutMS(m_timeoutMs);
-		msg->set_ServerTime(util::TimeUtil::GetInstance()->FindUTCMs());
+		auto msg = NEW(jy::NetConnect);
+		msg->set_connectip(m_ip);
+		msg->set_connectport(m_port);
+		msg->set_timeoutms(m_timeoutMs);
+		msg->set_servertime(util::TimeUtil::GetInstance().FindUTCMs());
 
 		//내부로 접속한 유저가 있다고 알려준다.
-		ExecuteCallback(msg->MessageID(), msg);
+		ExecuteCallback(msg->messageid(), msg);
 
 		//접속한사람한테 알려준다.
-		NetworkManager::GetInstance()->Send(m_hostId, msg->MessageID(), msg);
+		NetworkManager::GetInstance().Send(m_hostId, msg->messageid(), msg);
 
 		//receive 요청
 		auto task = NEW(NetworkTaskReceive);
 		task->m_owner = this;
 
-		if (NetworkManager::GetInstance()->WorkerPush(task.get()))
+		if (NetworkManager::GetInstance().WorkerPush(task.get()))
 		{
 			m_tasks.emplace_back(task);
 		}
@@ -369,7 +369,7 @@ namespace network
 				task->m_owner = this;
 				task->m_datas.swap(m_datas);
 
-				if (NetworkManager::GetInstance()->WorkerPush(task.get()))
+				if (NetworkManager::GetInstance().WorkerPush(task.get()))
 				{
 					m_tasks.emplace_back(task);
 				}

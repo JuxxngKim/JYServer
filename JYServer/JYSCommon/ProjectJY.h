@@ -6,10 +6,14 @@
 
 #define WIN32_LEAN_AND_MEAN             // 거의 사용되지 않는 내용을 Windows 헤더에서 제외합니다.
 #define NOMINMAX
-#define WINSOCK_DEPRECATED_NO_WARNINGS
+#define _WINSOCK_DEPRECATED_NO_WARNINGS
 #define SPDLOG_USE_STD_FORMAT
 
+#pragma warning(push)
+#pragma warning(disable: 4244)
+#pragma warning(disable: 4267)
 #include "../../../../Common/Tool/ProtocolGenerator/generated/protocol.pb.h"
+#pragma warning(pop)
 
 #include <WinSock2.h>
 #include <WS2tcpip.h>
@@ -40,4 +44,5 @@
 #include "DefineMacro.h"
 #include "TimeUtil.h"
 #include "Logger.h"
+#include "PacketWrapper.h"
 #include "NetworkManager.h"

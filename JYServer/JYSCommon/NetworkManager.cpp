@@ -305,7 +305,7 @@ namespace network
 			{
 				//종료이벤트 호출
 				auto msg = NEW(jy::NetDisconnect);
-				host->ExecuteCallback(msg->MessageID(), msg);
+				host->ExecuteCallback(msg->messageid(), msg);
 
 				iter = m_hosts.erase(iter);
 				continue;
@@ -314,7 +314,7 @@ namespace network
 			++iter;
 		}
 
-		m_nextUpdateHostTimeMs = util::TimeUtil::GetInstance()->FindTickKSTMs() + UPDATE_HOST_INTERVAL_MS;
+		m_nextUpdateHostTimeMs = util::TimeUtil::GetInstance().FindTickKSTMs() + UPDATE_HOST_INTERVAL_MS;
 		m_hostCount = (int32_t)m_hosts.size();
 	}
 
@@ -406,7 +406,7 @@ namespace network
 		ncc->m_ignoreEncrypt = ignoreEncrypt;
 		SerializerPush(ncc);
 
-		//CommonMetric::GetInstance()->IncrementPacketSendCounter(messageID);
+		//CommonMetric::GetInstance().IncrementPacketSendCounter(messageID);
 	}
 
 	void NetworkManager::Send(const HostID_t& hostID, int32_t messageID, const PTR<google::protobuf::Message>& message, const bool& ignoreEncrypt)

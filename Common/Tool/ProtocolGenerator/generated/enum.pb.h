@@ -56,15 +56,132 @@ PROTOBUF_NAMESPACE_OPEN
 PROTOBUF_NAMESPACE_CLOSE
 namespace jy {
 
+enum EProtocolVersion : int {
+  RE_PROTOCOL_VERSION = 4
+};
+bool EProtocolVersion_IsValid(int value);
+constexpr EProtocolVersion EProtocolVersion_MIN = RE_PROTOCOL_VERSION;
+constexpr EProtocolVersion EProtocolVersion_MAX = RE_PROTOCOL_VERSION;
+constexpr int EProtocolVersion_ARRAYSIZE = EProtocolVersion_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EProtocolVersion_descriptor();
+template<typename T>
+inline const std::string& EProtocolVersion_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, EProtocolVersion>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function EProtocolVersion_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    EProtocolVersion_descriptor(), enum_t_value);
+}
+inline bool EProtocolVersion_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EProtocolVersion* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EProtocolVersion>(
+    EProtocolVersion_descriptor(), name, value);
+}
 enum EMessageID : int {
-  NET_ALIVE_REQ = 0,
-  NET_ALIVE_ACK = 2,
-  EMessageID_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
-  EMessageID_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+  NET_CONNECT = 100,
+  NET_DISCONNECT = 101,
+  NET_ALIVE_REQ = 102,
+  NET_ALIVE_ACK = 103,
+  WRITE_SERVER_LOG = 104,
+  INTERNAL_EVENT_TICK = 105,
+  NULL_MESSAGE = 106,
+  CG_CLIENT_GATEWAY_BEGIN = 1000,
+  CG_AUTH_LOGIN_REQ = 1001,
+  GC_AUTH_LOGIN_ACK = 1002,
+  GC_AUTH_LOGIN_NAK = 1003,
+  CG_GET_NMSS_TOKEN_REQ = 1004,
+  GC_GET_NMSS_TOKEN_ACK = 1005,
+  CG_APP_CERTIFICATION_REQ = 1006,
+  GC_APP_CERTIFICATION_ACK = 1007,
+  GC_GET_NMSS_TOKEN_NAK = 1008,
+  GC_APP_CERTIFICATION_NAK = 1009,
+  CG_ENCRYPTION_REQ = 1010,
+  GC_ENCRYPTION_ACK = 1011,
+  CG_GET_WAITING_QUEUE_ORDER_REQ = 1012,
+  GC_GET_WAITING_QUEUE_ORDER_ACK = 1013,
+  CG_CLIENT_GATEWAY_END = 9999,
+  CA_CLIENT_ADVENTURE_BEGIN = 10000,
+  AC_COMMON_NAK = 10001,
+  CA_LOGIN_REQ = 10002,
+  AC_LOGIN_ACK = 10003,
+  CA_GET_PLAYER_REQ = 10199,
+  AC_GET_PLAYER_ACK = 10200,
+  AC_GET_PLAYER_INFO_NOTI = 10201,
+  AC_GET_PLAYER_HERO_NOTI = 10202,
+  AC_GET_PLAYER_FORMATION_NOTI = 10204,
+  AC_GET_PLAYER_DECK_NOTI = 10205,
+  CA_SAVE_HERO_DECK_REQ = 10206,
+  AC_SAVE_HERO_DECK_ACK = 10207,
+  CA_HERO_EQUIP_ITEM_REQ = 10209,
+  AC_HERO_EQUIP_ITEM_ACK = 10210,
+  AC_GET_PLAYER_USER_OPTION_NOTI = 10211,
+  CA_SAVE_USER_OPTION_REQ = 10212,
+  AC_SAVE_USER_OPTION_ACK = 10213,
+  AC_CHANGE_ITEM_NOTI = 10215,
+  CA_GAME_MACRO_REQ = 10216,
+  AC_GAME_MACRO_KILL_NOTI = 10217,
+  AC_GAME_MACRO_TRACE_OBJECT_NOTI = 10218,
+  AC_GET_PLAYER_ETC_NOTI = 10219,
+  AC_CHANGE_ETC_NOTI = 10220,
+  CA_HERO_REINFORCE_REQ = 10221,
+  AC_HERO_REINFORCE_ACK = 10222,
+  CA_HERO_COMPOSE_REQ = 10223,
+  AC_HERO_COMPOSE_ACK = 10224,
+  CA_HERO_TRANSCEND_REQ = 10225,
+  AC_HERO_TRANSCEND_ACK = 10226,
+  CA_HERO_EVOLUTION_REQ = 10227,
+  AC_HERO_EVOLUTION_ACK = 10228,
+  AC_CHANGE_HERO_NOTI = 10229,
+  AC_GET_PLAYER_TICKET_NOTI = 10230,
+  AC_CHANGE_TICKET_NOTI = 10231,
+  AC_GET_PLAYER_STAGE_NOTI = 10232,
+  CA_SKILL_REINFORCE_REQ = 10233,
+  AC_SKILL_REINFORCE_ACK = 10234,
+  CA_ITEM_REINFORCE_REQ = 10235,
+  AC_ITEM_REINFORCE_ACK = 10236,
+  CA_ITEM_LOCK_REQ = 10237,
+  AC_ITEM_LOCK_ACK = 10238,
+  CA_OPEN_ITEM_BOX_REQ = 10240,
+  AC_OPEN_ITEM_BOX_ACK = 10241,
+  CA_STAGE_ACHIEVEMENT_REWARD_REQ = 10242,
+  AC_STAGE_ACHIEVEMENT_REWARD_ACK = 10243,
+  CA_ENTER_DUNGEON_REQ = 10244,
+  AC_ENTER_DUNGEON_ACK = 10245,
+  AC_ENTER_DUNGEON_NAK = 10246,
+  AC_GET_PLAYER_DUNGEON_NOTI = 10247,
+  CA_ITEM_DISASSEMBLY_REQ = 10248,
+  AC_ITEM_DISASSEMBLY_ACK = 10249,
+  CA_GET_HERO_GROWTH_STORAGE_REQ = 10250,
+  AC_GET_HERO_GROWTH_STORAGE_ACK = 10251,
+  CA_HERO_PUSH_GROWTH_STORAGE_REQ = 10252,
+  AC_HERO_PUSH_GROWTH_STORAGE_ACK = 10253,
+  CA_HERO_POP_GROWTH_STORAGE_REQ = 10254,
+  AC_HERO_POP_GROWTH_STORAGE_ACK = 10255,
+  AC_GET_PLAYER_HERO_GROWTH_STORAGE_NOTI = 10256,
+  AC_GET_PLAYER_HERO_NON_GROWTH_STORAGE_NOTI = 10257,
+  CA_HERO_PUSH_NON_GROWTH_STORAGE_REQ = 10258,
+  AC_HERO_PUSH_NON_GROWTH_STORAGE_ACK = 10259,
+  CA_HERO_POP_NON_GROWTH_STORAGE_REQ = 10260,
+  AC_HERO_POP_NON_GROWTH_STORAGE_ACK = 10261,
+  AC_CHANGE_HERO_GROWTH_STORAGE_NOTI = 10262,
+  AC_CHANGE_HERO_NON_GROWTH_STORAGE_NOTI = 10263,
+  CA_CHANGE_REPETITION_BACKGROUND_MODE_REQ = 10264,
+  AC_CHANGE_REPETITION_BACKGROUND_MODE_ACK = 10265,
+  CA_CHANGE_REPETITION_FOREGROUND_MODE_REQ = 10266,
+  AC_CHANGE_REPETITION_FOREGROUND_MODE_ACK = 10267,
+  CA_REPETITION_BATTLE_ENTER_STAGE_REQ = 10268,
+  AC_REPETITION_BATTLE_ENTER_STAGE_ACK = 10269,
+  AC_REPETITION_BATTLE_ENTER_STAGE_NAK = 10270,
+  CA_CHANGE_REPETITION_BATTLE_OPTION_REQ = 10271,
+  AC_CHANGE_REPETITION_BATTLE_OPTION_ACK = 10272,
+  AD_LOGIN_REQ = 20100,
+  DA_LOGIN_ACK = 20101,
+  DA_LOGIN_NAK = 20102
 };
 bool EMessageID_IsValid(int value);
-constexpr EMessageID EMessageID_MIN = NET_ALIVE_REQ;
-constexpr EMessageID EMessageID_MAX = NET_ALIVE_ACK;
+constexpr EMessageID EMessageID_MIN = NET_CONNECT;
+constexpr EMessageID EMessageID_MAX = DA_LOGIN_NAK;
 constexpr int EMessageID_ARRAYSIZE = EMessageID_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EMessageID_descriptor();
@@ -81,33 +198,47 @@ inline bool EMessageID_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EMessageID>(
     EMessageID_descriptor(), name, value);
 }
-enum PlayerState : int {
-  STATE_UNKNOWN = 0,
-  STATE_IDLE = 1,
-  STATE_MOVING = 2,
-  STATE_ATTACKING = 3,
-  STATE_DEAD = 4,
-  PlayerState_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
-  PlayerState_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+enum EErrorMsg : int {
+  E_SUCCESS = 0,
+  E_UNKNOWN = 1,
+  E_INVALID_PROTOCOL_VERSION = 2,
+  E_DUPLICATE_NAME = 3,
+  E_AUTHENTICATION_FAILED = 4,
+  E_INTERNAL_DATABASE_ERROR = 5,
+  E_PROCESS_FAIL = 6,
+  E_NOT_EXIST_PLAYER = 7,
+  E_DUPLICATE_CLIENT = 8,
+  E_WRONG_PLAYER_DATA_CLIENT_RECONNECT = 9,
+  E_DUPLICATE_CONNECTION = 10,
+  E_DB_DUPLICATE_CONNECTION = 11,
+  E_TOKEN_EXPIRED = 12,
+  E_INVALID_SIGNATURE_FORMAT = 13,
+  E_DECODE_ERROR = 14,
+  E_NOT_EXIST_AVAILABLE_ADVENTURE_SERVER = 15,
+  E_MAINTENANCE_SERVER = 16,
+  E_BLOCK_CONTENTS = 17,
+  E_INVALID_PLATFORM = 18,
+  E_NMSS_FAIL = 19,
+  E_INVALID_DATA = 20
 };
-bool PlayerState_IsValid(int value);
-constexpr PlayerState PlayerState_MIN = STATE_UNKNOWN;
-constexpr PlayerState PlayerState_MAX = STATE_DEAD;
-constexpr int PlayerState_ARRAYSIZE = PlayerState_MAX + 1;
+bool EErrorMsg_IsValid(int value);
+constexpr EErrorMsg EErrorMsg_MIN = E_SUCCESS;
+constexpr EErrorMsg EErrorMsg_MAX = E_INVALID_DATA;
+constexpr int EErrorMsg_ARRAYSIZE = EErrorMsg_MAX + 1;
 
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* PlayerState_descriptor();
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EErrorMsg_descriptor();
 template<typename T>
-inline const std::string& PlayerState_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, PlayerState>::value ||
+inline const std::string& EErrorMsg_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, EErrorMsg>::value ||
     ::std::is_integral<T>::value,
-    "Incorrect type passed to function PlayerState_Name.");
+    "Incorrect type passed to function EErrorMsg_Name.");
   return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    PlayerState_descriptor(), enum_t_value);
+    EErrorMsg_descriptor(), enum_t_value);
 }
-inline bool PlayerState_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, PlayerState* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<PlayerState>(
-    PlayerState_descriptor(), name, value);
+inline bool EErrorMsg_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EErrorMsg* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EErrorMsg>(
+    EErrorMsg_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -131,15 +262,20 @@ inline bool PlayerState_Parse(
 
 PROTOBUF_NAMESPACE_OPEN
 
+template <> struct is_proto_enum< ::jy::EProtocolVersion> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::jy::EProtocolVersion>() {
+  return ::jy::EProtocolVersion_descriptor();
+}
 template <> struct is_proto_enum< ::jy::EMessageID> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::jy::EMessageID>() {
   return ::jy::EMessageID_descriptor();
 }
-template <> struct is_proto_enum< ::jy::PlayerState> : ::std::true_type {};
+template <> struct is_proto_enum< ::jy::EErrorMsg> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::jy::PlayerState>() {
-  return ::jy::PlayerState_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::jy::EErrorMsg>() {
+  return ::jy::EErrorMsg_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

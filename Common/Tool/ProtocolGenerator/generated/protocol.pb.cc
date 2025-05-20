@@ -17,61 +17,149 @@
 
 PROTOBUF_PRAGMA_INIT_SEG
 namespace jy {
-constexpr PlayerData::PlayerData(
+constexpr NetConnect::NetConnect(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : items_()
-  , player_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , player_name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , level_(0)
-  , state_(0)
+  : connectip_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , connectport_(0)
+  , timeoutms_(0)
+  , servertime_(int64_t{0})
+  , messageid_(100)
 {}
-struct PlayerDataDefaultTypeInternal {
-  constexpr PlayerDataDefaultTypeInternal()
+struct NetConnectDefaultTypeInternal {
+  constexpr NetConnectDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~PlayerDataDefaultTypeInternal() {}
+  ~NetConnectDefaultTypeInternal() {}
   union {
-    PlayerData _instance;
+    NetConnect _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PlayerDataDefaultTypeInternal _PlayerData_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT NetConnectDefaultTypeInternal _NetConnect_default_instance_;
+constexpr NetDisconnect::NetDisconnect(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : messageid_(101)
+{}
+struct NetDisconnectDefaultTypeInternal {
+  constexpr NetDisconnectDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~NetDisconnectDefaultTypeInternal() {}
+  union {
+    NetDisconnect _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT NetDisconnectDefaultTypeInternal _NetDisconnect_default_instance_;
+constexpr NetAliveReq::NetAliveReq(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : requestms_(int64_t{0})
+  , messageid_(102)
+{}
+struct NetAliveReqDefaultTypeInternal {
+  constexpr NetAliveReqDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~NetAliveReqDefaultTypeInternal() {}
+  union {
+    NetAliveReq _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT NetAliveReqDefaultTypeInternal _NetAliveReq_default_instance_;
+constexpr NetAliveAck::NetAliveAck(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : requestms_(int64_t{0})
+  , responsems_(int64_t{0})
+  , messageid_(103)
+{}
+struct NetAliveAckDefaultTypeInternal {
+  constexpr NetAliveAckDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~NetAliveAckDefaultTypeInternal() {}
+  union {
+    NetAliveAck _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT NetAliveAckDefaultTypeInternal _NetAliveAck_default_instance_;
 }  // namespace jy
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_protocol_2eproto[1];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_protocol_2eproto[4];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_protocol_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_protocol_2eproto = nullptr;
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_protocol_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::jy::PlayerData, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::jy::NetConnect, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::jy::NetConnect, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::jy::PlayerData, player_id_),
-  PROTOBUF_FIELD_OFFSET(::jy::PlayerData, player_name_),
-  PROTOBUF_FIELD_OFFSET(::jy::PlayerData, level_),
-  PROTOBUF_FIELD_OFFSET(::jy::PlayerData, state_),
-  PROTOBUF_FIELD_OFFSET(::jy::PlayerData, items_),
+  PROTOBUF_FIELD_OFFSET(::jy::NetConnect, messageid_),
+  PROTOBUF_FIELD_OFFSET(::jy::NetConnect, connectip_),
+  PROTOBUF_FIELD_OFFSET(::jy::NetConnect, connectport_),
+  PROTOBUF_FIELD_OFFSET(::jy::NetConnect, timeoutms_),
+  PROTOBUF_FIELD_OFFSET(::jy::NetConnect, servertime_),
+  4,
+  0,
+  1,
+  2,
+  3,
+  PROTOBUF_FIELD_OFFSET(::jy::NetDisconnect, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::jy::NetDisconnect, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::jy::NetDisconnect, messageid_),
+  0,
+  PROTOBUF_FIELD_OFFSET(::jy::NetAliveReq, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::jy::NetAliveReq, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::jy::NetAliveReq, messageid_),
+  PROTOBUF_FIELD_OFFSET(::jy::NetAliveReq, requestms_),
+  1,
+  0,
+  PROTOBUF_FIELD_OFFSET(::jy::NetAliveAck, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::jy::NetAliveAck, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::jy::NetAliveAck, messageid_),
+  PROTOBUF_FIELD_OFFSET(::jy::NetAliveAck, requestms_),
+  PROTOBUF_FIELD_OFFSET(::jy::NetAliveAck, responsems_),
+  2,
+  0,
+  1,
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::jy::PlayerData)},
+  { 0, 10, sizeof(::jy::NetConnect)},
+  { 15, 21, sizeof(::jy::NetDisconnect)},
+  { 22, 29, sizeof(::jy::NetAliveReq)},
+  { 31, 39, sizeof(::jy::NetAliveAck)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::jy::_PlayerData_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::jy::_NetConnect_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::jy::_NetDisconnect_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::jy::_NetAliveReq_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::jy::_NetAliveAck_default_instance_),
 };
 
 const char descriptor_table_protodef_protocol_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\016protocol.proto\022\002jy\032\nenum.proto\"r\n\nPlay"
-  "erData\022\021\n\tplayer_id\030\001 \001(\t\022\023\n\013player_name"
-  "\030\002 \001(\t\022\r\n\005level\030\003 \001(\005\022\036\n\005state\030\004 \001(\0162\017.j"
-  "y.PlayerState\022\r\n\005items\030\005 \003(\tb\006proto3"
+  "\n\016protocol.proto\022\002jy\032\nenum.proto\"\226\001\n\nNet"
+  "Connect\022.\n\tMessageID\030c \001(\0162\016.jy.EMessage"
+  "ID:\013NET_CONNECT\022\023\n\tConnectIP\030\001 \001(\t:\000\022\026\n\013"
+  "ConnectPort\030\002 \001(\005:\0010\022\024\n\tTimeoutMS\030\003 \001(\005:"
+  "\0010\022\025\n\nServerTime\030\004 \001(\003:\0010\"B\n\rNetDisconne"
+  "ct\0221\n\tMessageID\030c \001(\0162\016.jy.EMessageID:\016N"
+  "ET_DISCONNECT\"U\n\013NetAliveReq\0220\n\tMessageI"
+  "D\030c \001(\0162\016.jy.EMessageID:\rNET_ALIVE_REQ\022\024"
+  "\n\tRequestMS\030\001 \001(\003:\0010\"l\n\013NetAliveAck\0220\n\tM"
+  "essageID\030c \001(\0162\016.jy.EMessageID:\rNET_ALIV"
+  "E_ACK\022\024\n\tRequestMS\030\001 \001(\003:\0010\022\025\n\nResponseM"
+  "S\030\002 \001(\003:\0010"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_protocol_2eproto_deps[1] = {
   &::descriptor_table_enum_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_protocol_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_protocol_2eproto = {
-  false, false, 156, descriptor_table_protodef_protocol_2eproto, "protocol.proto", 
-  &descriptor_table_protocol_2eproto_once, descriptor_table_protocol_2eproto_deps, 1, 1,
+  false, false, 450, descriptor_table_protodef_protocol_2eproto, "protocol.proto", 
+  &descriptor_table_protocol_2eproto_once, descriptor_table_protocol_2eproto_deps, 1, 4,
   schemas, file_default_instances, TableStruct_protocol_2eproto::offsets,
   file_level_metadata_protocol_2eproto, file_level_enum_descriptors_protocol_2eproto, file_level_service_descriptors_protocol_2eproto,
 };
@@ -85,134 +173,149 @@ namespace jy {
 
 // ===================================================================
 
-class PlayerData::_Internal {
+class NetConnect::_Internal {
  public:
+  using HasBits = decltype(std::declval<NetConnect>()._has_bits_);
+  static void set_has_messageid(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
+  static void set_has_connectip(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_connectport(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_timeoutms(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_servertime(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
 };
 
-PlayerData::PlayerData(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  items_(arena) {
+NetConnect::NetConnect(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:jy.PlayerData)
+  // @@protoc_insertion_point(arena_constructor:jy.NetConnect)
 }
-PlayerData::PlayerData(const PlayerData& from)
+NetConnect::NetConnect(const NetConnect& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
-      items_(from.items_) {
+      _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  player_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_player_id().empty()) {
-    player_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_player_id(), 
+  connectip_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_connectip()) {
+    connectip_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_connectip(), 
       GetArenaForAllocation());
   }
-  player_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_player_name().empty()) {
-    player_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_player_name(), 
-      GetArenaForAllocation());
-  }
-  ::memcpy(&level_, &from.level_,
-    static_cast<size_t>(reinterpret_cast<char*>(&state_) -
-    reinterpret_cast<char*>(&level_)) + sizeof(state_));
-  // @@protoc_insertion_point(copy_constructor:jy.PlayerData)
+  ::memcpy(&connectport_, &from.connectport_,
+    static_cast<size_t>(reinterpret_cast<char*>(&messageid_) -
+    reinterpret_cast<char*>(&connectport_)) + sizeof(messageid_));
+  // @@protoc_insertion_point(copy_constructor:jy.NetConnect)
 }
 
-void PlayerData::SharedCtor() {
-player_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-player_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+void NetConnect::SharedCtor() {
+connectip_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&level_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&state_) -
-    reinterpret_cast<char*>(&level_)) + sizeof(state_));
+    reinterpret_cast<char*>(&connectport_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&servertime_) -
+    reinterpret_cast<char*>(&connectport_)) + sizeof(servertime_));
+messageid_ = 100;
 }
 
-PlayerData::~PlayerData() {
-  // @@protoc_insertion_point(destructor:jy.PlayerData)
+NetConnect::~NetConnect() {
+  // @@protoc_insertion_point(destructor:jy.NetConnect)
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void PlayerData::SharedDtor() {
+void NetConnect::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  player_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  player_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  connectip_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
-void PlayerData::ArenaDtor(void* object) {
-  PlayerData* _this = reinterpret_cast< PlayerData* >(object);
+void NetConnect::ArenaDtor(void* object) {
+  NetConnect* _this = reinterpret_cast< NetConnect* >(object);
   (void)_this;
 }
-void PlayerData::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+void NetConnect::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 }
-void PlayerData::SetCachedSize(int size) const {
+void NetConnect::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 
-void PlayerData::Clear() {
-// @@protoc_insertion_point(message_clear_start:jy.PlayerData)
+void NetConnect::Clear() {
+// @@protoc_insertion_point(message_clear_start:jy.NetConnect)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  items_.Clear();
-  player_id_.ClearToEmpty();
-  player_name_.ClearToEmpty();
-  ::memset(&level_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&state_) -
-      reinterpret_cast<char*>(&level_)) + sizeof(state_));
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    connectip_.ClearNonDefaultToEmpty();
+  }
+  if (cached_has_bits & 0x0000001eu) {
+    ::memset(&connectport_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&servertime_) -
+        reinterpret_cast<char*>(&connectport_)) + sizeof(servertime_));
+    messageid_ = 100;
+  }
+  _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* PlayerData::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* NetConnect::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // string player_id = 1;
+      // optional string ConnectIP = 1 [default = ""];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_player_id();
+          auto str = _internal_mutable_connectip();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "jy.PlayerData.player_id"));
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "jy.NetConnect.ConnectIP");
+          #endif  // !NDEBUG
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // string player_name = 2;
+      // optional int32 ConnectPort = 2 [default = 0];
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          auto str = _internal_mutable_player_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "jy.PlayerData.player_name"));
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          _Internal::set_has_connectport(&has_bits);
+          connectport_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // int32 level = 3;
+      // optional int32 TimeoutMS = 3 [default = 0];
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
-          level_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _Internal::set_has_timeoutms(&has_bits);
+          timeoutms_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .jy.PlayerState state = 4;
+      // optional int64 ServerTime = 4 [default = 0];
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _Internal::set_has_servertime(&has_bits);
+          servertime_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-          _internal_set_state(static_cast<::jy::PlayerState>(val));
         } else goto handle_unusual;
         continue;
-      // repeated string items = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            auto str = _internal_add_items();
-            ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-            CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "jy.PlayerData.items"));
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
+      // optional .jy.EMessageID MessageID = 99 [default = NET_CONNECT];
+      case 99:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::jy::EMessageID_IsValid(val))) {
+            _internal_set_messageid(static_cast<::jy::EMessageID>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(99, val, mutable_unknown_fields());
+          }
         } else goto handle_unusual;
         continue;
       default: {
@@ -231,6 +334,7 @@ const char* PlayerData::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
     }  // switch
   }  // while
 success:
+  _has_bits_.Or(has_bits);
   return ptr;
 failure:
   ptr = nullptr;
@@ -238,104 +342,332 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* PlayerData::_InternalSerialize(
+::PROTOBUF_NAMESPACE_ID::uint8* NetConnect::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:jy.PlayerData)
+  // @@protoc_insertion_point(serialize_to_array_start:jy.NetConnect)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string player_id = 1;
-  if (!this->player_id().empty()) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_player_id().data(), static_cast<int>(this->_internal_player_id().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "jy.PlayerData.player_id");
+  cached_has_bits = _has_bits_[0];
+  // optional string ConnectIP = 1 [default = ""];
+  if (cached_has_bits & 0x00000001u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_connectip().data(), static_cast<int>(this->_internal_connectip().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "jy.NetConnect.ConnectIP");
     target = stream->WriteStringMaybeAliased(
-        1, this->_internal_player_id(), target);
+        1, this->_internal_connectip(), target);
   }
 
-  // string player_name = 2;
-  if (!this->player_name().empty()) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_player_name().data(), static_cast<int>(this->_internal_player_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "jy.PlayerData.player_name");
-    target = stream->WriteStringMaybeAliased(
-        2, this->_internal_player_name(), target);
-  }
-
-  // int32 level = 3;
-  if (this->level() != 0) {
+  // optional int32 ConnectPort = 2 [default = 0];
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(3, this->_internal_level(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_connectport(), target);
   }
 
-  // .jy.PlayerState state = 4;
-  if (this->state() != 0) {
+  // optional int32 TimeoutMS = 3 [default = 0];
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(3, this->_internal_timeoutms(), target);
+  }
+
+  // optional int64 ServerTime = 4 [default = 0];
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(4, this->_internal_servertime(), target);
+  }
+
+  // optional .jy.EMessageID MessageID = 99 [default = NET_CONNECT];
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
-      4, this->_internal_state(), target);
-  }
-
-  // repeated string items = 5;
-  for (int i = 0, n = this->_internal_items_size(); i < n; i++) {
-    const auto& s = this->_internal_items(i);
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      s.data(), static_cast<int>(s.length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "jy.PlayerData.items");
-    target = stream->WriteString(5, s, target);
+      99, this->_internal_messageid(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:jy.PlayerData)
+  // @@protoc_insertion_point(serialize_to_array_end:jy.NetConnect)
   return target;
 }
 
-size_t PlayerData::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:jy.PlayerData)
+size_t NetConnect::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:jy.NetConnect)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated string items = 5;
-  total_size += 1 *
-      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(items_.size());
-  for (int i = 0, n = items_.size(); i < n; i++) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-      items_.Get(i));
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x0000001fu) {
+    // optional string ConnectIP = 1 [default = ""];
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_connectip());
+    }
+
+    // optional int32 ConnectPort = 2 [default = 0];
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+          this->_internal_connectport());
+    }
+
+    // optional int32 TimeoutMS = 3 [default = 0];
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+          this->_internal_timeoutms());
+    }
+
+    // optional int64 ServerTime = 4 [default = 0];
+    if (cached_has_bits & 0x00000008u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+          this->_internal_servertime());
+    }
+
+    // optional .jy.EMessageID MessageID = 99 [default = NET_CONNECT];
+    if (cached_has_bits & 0x00000010u) {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_messageid());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void NetConnect::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:jy.NetConnect)
+  GOOGLE_DCHECK_NE(&from, this);
+  const NetConnect* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<NetConnect>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:jy.NetConnect)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:jy.NetConnect)
+    MergeFrom(*source);
+  }
+}
+
+void NetConnect::MergeFrom(const NetConnect& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:jy.NetConnect)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x0000001fu) {
+    if (cached_has_bits & 0x00000001u) {
+      _internal_set_connectip(from._internal_connectip());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      connectport_ = from.connectport_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      timeoutms_ = from.timeoutms_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      servertime_ = from.servertime_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      messageid_ = from.messageid_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void NetConnect::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:jy.NetConnect)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void NetConnect::CopyFrom(const NetConnect& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:jy.NetConnect)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool NetConnect::IsInitialized() const {
+  return true;
+}
+
+void NetConnect::InternalSwap(NetConnect* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &connectip_, GetArenaForAllocation(),
+      &other->connectip_, other->GetArenaForAllocation()
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(NetConnect, servertime_)
+      + sizeof(NetConnect::servertime_)
+      - PROTOBUF_FIELD_OFFSET(NetConnect, connectport_)>(
+          reinterpret_cast<char*>(&connectport_),
+          reinterpret_cast<char*>(&other->connectport_));
+  swap(messageid_, other->messageid_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata NetConnect::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_protocol_2eproto_getter, &descriptor_table_protocol_2eproto_once,
+      file_level_metadata_protocol_2eproto[0]);
+}
+
+// ===================================================================
+
+class NetDisconnect::_Internal {
+ public:
+  using HasBits = decltype(std::declval<NetDisconnect>()._has_bits_);
+  static void set_has_messageid(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+NetDisconnect::NetDisconnect(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:jy.NetDisconnect)
+}
+NetDisconnect::NetDisconnect(const NetDisconnect& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  messageid_ = from.messageid_;
+  // @@protoc_insertion_point(copy_constructor:jy.NetDisconnect)
+}
+
+void NetDisconnect::SharedCtor() {
+messageid_ = 101;
+}
+
+NetDisconnect::~NetDisconnect() {
+  // @@protoc_insertion_point(destructor:jy.NetDisconnect)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void NetDisconnect::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void NetDisconnect::ArenaDtor(void* object) {
+  NetDisconnect* _this = reinterpret_cast< NetDisconnect* >(object);
+  (void)_this;
+}
+void NetDisconnect::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void NetDisconnect::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void NetDisconnect::Clear() {
+// @@protoc_insertion_point(message_clear_start:jy.NetDisconnect)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  messageid_ = 101;
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* NetDisconnect::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional .jy.EMessageID MessageID = 99 [default = NET_DISCONNECT];
+      case 99:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::jy::EMessageID_IsValid(val))) {
+            _internal_set_messageid(static_cast<::jy::EMessageID>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(99, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag == 0) || ((tag & 7) == 4)) {
+          CHK_(ptr);
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* NetDisconnect::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:jy.NetDisconnect)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional .jy.EMessageID MessageID = 99 [default = NET_DISCONNECT];
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      99, this->_internal_messageid(), target);
   }
 
-  // string player_id = 1;
-  if (!this->player_id().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_player_id());
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
+  // @@protoc_insertion_point(serialize_to_array_end:jy.NetDisconnect)
+  return target;
+}
 
-  // string player_name = 2;
-  if (!this->player_name().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_player_name());
-  }
+size_t NetDisconnect::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:jy.NetDisconnect)
+  size_t total_size = 0;
 
-  // int32 level = 3;
-  if (this->level() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_level());
-  }
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
 
-  // .jy.PlayerState state = 4;
-  if (this->state() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_state());
+  // optional .jy.EMessageID MessageID = 99 [default = NET_DISCONNECT];
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_messageid());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -347,94 +679,609 @@ size_t PlayerData::ByteSizeLong() const {
   return total_size;
 }
 
-void PlayerData::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:jy.PlayerData)
+void NetDisconnect::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:jy.NetDisconnect)
   GOOGLE_DCHECK_NE(&from, this);
-  const PlayerData* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<PlayerData>(
+  const NetDisconnect* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<NetDisconnect>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:jy.PlayerData)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:jy.NetDisconnect)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:jy.PlayerData)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:jy.NetDisconnect)
     MergeFrom(*source);
   }
 }
 
-void PlayerData::MergeFrom(const PlayerData& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:jy.PlayerData)
+void NetDisconnect::MergeFrom(const NetDisconnect& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:jy.NetDisconnect)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  items_.MergeFrom(from.items_);
-  if (!from.player_id().empty()) {
-    _internal_set_player_id(from._internal_player_id());
-  }
-  if (!from.player_name().empty()) {
-    _internal_set_player_name(from._internal_player_name());
-  }
-  if (from.level() != 0) {
-    _internal_set_level(from._internal_level());
-  }
-  if (from.state() != 0) {
-    _internal_set_state(from._internal_state());
+  if (from._internal_has_messageid()) {
+    _internal_set_messageid(from._internal_messageid());
   }
 }
 
-void PlayerData::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:jy.PlayerData)
+void NetDisconnect::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:jy.NetDisconnect)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void PlayerData::CopyFrom(const PlayerData& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:jy.PlayerData)
+void NetDisconnect::CopyFrom(const NetDisconnect& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:jy.NetDisconnect)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool PlayerData::IsInitialized() const {
+bool NetDisconnect::IsInitialized() const {
   return true;
 }
 
-void PlayerData::InternalSwap(PlayerData* other) {
+void NetDisconnect::InternalSwap(NetDisconnect* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  items_.InternalSwap(&other->items_);
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &player_id_, GetArenaForAllocation(),
-      &other->player_id_, other->GetArenaForAllocation()
-  );
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &player_name_, GetArenaForAllocation(),
-      &other->player_name_, other->GetArenaForAllocation()
-  );
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(PlayerData, state_)
-      + sizeof(PlayerData::state_)
-      - PROTOBUF_FIELD_OFFSET(PlayerData, level_)>(
-          reinterpret_cast<char*>(&level_),
-          reinterpret_cast<char*>(&other->level_));
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  swap(messageid_, other->messageid_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata PlayerData::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata NetDisconnect::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_protocol_2eproto_getter, &descriptor_table_protocol_2eproto_once,
-      file_level_metadata_protocol_2eproto[0]);
+      file_level_metadata_protocol_2eproto[1]);
+}
+
+// ===================================================================
+
+class NetAliveReq::_Internal {
+ public:
+  using HasBits = decltype(std::declval<NetAliveReq>()._has_bits_);
+  static void set_has_messageid(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_requestms(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+NetAliveReq::NetAliveReq(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:jy.NetAliveReq)
+}
+NetAliveReq::NetAliveReq(const NetAliveReq& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&requestms_, &from.requestms_,
+    static_cast<size_t>(reinterpret_cast<char*>(&messageid_) -
+    reinterpret_cast<char*>(&requestms_)) + sizeof(messageid_));
+  // @@protoc_insertion_point(copy_constructor:jy.NetAliveReq)
+}
+
+void NetAliveReq::SharedCtor() {
+requestms_ = int64_t{0};
+messageid_ = 102;
+}
+
+NetAliveReq::~NetAliveReq() {
+  // @@protoc_insertion_point(destructor:jy.NetAliveReq)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void NetAliveReq::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void NetAliveReq::ArenaDtor(void* object) {
+  NetAliveReq* _this = reinterpret_cast< NetAliveReq* >(object);
+  (void)_this;
+}
+void NetAliveReq::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void NetAliveReq::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void NetAliveReq::Clear() {
+// @@protoc_insertion_point(message_clear_start:jy.NetAliveReq)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    requestms_ = int64_t{0};
+    messageid_ = 102;
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* NetAliveReq::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional int64 RequestMS = 1 [default = 0];
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          _Internal::set_has_requestms(&has_bits);
+          requestms_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional .jy.EMessageID MessageID = 99 [default = NET_ALIVE_REQ];
+      case 99:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::jy::EMessageID_IsValid(val))) {
+            _internal_set_messageid(static_cast<::jy::EMessageID>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(99, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag == 0) || ((tag & 7) == 4)) {
+          CHK_(ptr);
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* NetAliveReq::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:jy.NetAliveReq)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional int64 RequestMS = 1 [default = 0];
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_requestms(), target);
+  }
+
+  // optional .jy.EMessageID MessageID = 99 [default = NET_ALIVE_REQ];
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      99, this->_internal_messageid(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:jy.NetAliveReq)
+  return target;
+}
+
+size_t NetAliveReq::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:jy.NetAliveReq)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional int64 RequestMS = 1 [default = 0];
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+          this->_internal_requestms());
+    }
+
+    // optional .jy.EMessageID MessageID = 99 [default = NET_ALIVE_REQ];
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_messageid());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void NetAliveReq::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:jy.NetAliveReq)
+  GOOGLE_DCHECK_NE(&from, this);
+  const NetAliveReq* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<NetAliveReq>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:jy.NetAliveReq)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:jy.NetAliveReq)
+    MergeFrom(*source);
+  }
+}
+
+void NetAliveReq::MergeFrom(const NetAliveReq& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:jy.NetAliveReq)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      requestms_ = from.requestms_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      messageid_ = from.messageid_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void NetAliveReq::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:jy.NetAliveReq)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void NetAliveReq::CopyFrom(const NetAliveReq& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:jy.NetAliveReq)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool NetAliveReq::IsInitialized() const {
+  return true;
+}
+
+void NetAliveReq::InternalSwap(NetAliveReq* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  swap(requestms_, other->requestms_);
+  swap(messageid_, other->messageid_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata NetAliveReq::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_protocol_2eproto_getter, &descriptor_table_protocol_2eproto_once,
+      file_level_metadata_protocol_2eproto[2]);
+}
+
+// ===================================================================
+
+class NetAliveAck::_Internal {
+ public:
+  using HasBits = decltype(std::declval<NetAliveAck>()._has_bits_);
+  static void set_has_messageid(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_requestms(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_responsems(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+};
+
+NetAliveAck::NetAliveAck(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:jy.NetAliveAck)
+}
+NetAliveAck::NetAliveAck(const NetAliveAck& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&requestms_, &from.requestms_,
+    static_cast<size_t>(reinterpret_cast<char*>(&messageid_) -
+    reinterpret_cast<char*>(&requestms_)) + sizeof(messageid_));
+  // @@protoc_insertion_point(copy_constructor:jy.NetAliveAck)
+}
+
+void NetAliveAck::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&requestms_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&responsems_) -
+    reinterpret_cast<char*>(&requestms_)) + sizeof(responsems_));
+messageid_ = 103;
+}
+
+NetAliveAck::~NetAliveAck() {
+  // @@protoc_insertion_point(destructor:jy.NetAliveAck)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void NetAliveAck::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void NetAliveAck::ArenaDtor(void* object) {
+  NetAliveAck* _this = reinterpret_cast< NetAliveAck* >(object);
+  (void)_this;
+}
+void NetAliveAck::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void NetAliveAck::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void NetAliveAck::Clear() {
+// @@protoc_insertion_point(message_clear_start:jy.NetAliveAck)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    ::memset(&requestms_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&responsems_) -
+        reinterpret_cast<char*>(&requestms_)) + sizeof(responsems_));
+    messageid_ = 103;
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* NetAliveAck::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional int64 RequestMS = 1 [default = 0];
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          _Internal::set_has_requestms(&has_bits);
+          requestms_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional int64 ResponseMS = 2 [default = 0];
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          _Internal::set_has_responsems(&has_bits);
+          responsems_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional .jy.EMessageID MessageID = 99 [default = NET_ALIVE_ACK];
+      case 99:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::jy::EMessageID_IsValid(val))) {
+            _internal_set_messageid(static_cast<::jy::EMessageID>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(99, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag == 0) || ((tag & 7) == 4)) {
+          CHK_(ptr);
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* NetAliveAck::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:jy.NetAliveAck)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional int64 RequestMS = 1 [default = 0];
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_requestms(), target);
+  }
+
+  // optional int64 ResponseMS = 2 [default = 0];
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->_internal_responsems(), target);
+  }
+
+  // optional .jy.EMessageID MessageID = 99 [default = NET_ALIVE_ACK];
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      99, this->_internal_messageid(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:jy.NetAliveAck)
+  return target;
+}
+
+size_t NetAliveAck::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:jy.NetAliveAck)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    // optional int64 RequestMS = 1 [default = 0];
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+          this->_internal_requestms());
+    }
+
+    // optional int64 ResponseMS = 2 [default = 0];
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+          this->_internal_responsems());
+    }
+
+    // optional .jy.EMessageID MessageID = 99 [default = NET_ALIVE_ACK];
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_messageid());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void NetAliveAck::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:jy.NetAliveAck)
+  GOOGLE_DCHECK_NE(&from, this);
+  const NetAliveAck* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<NetAliveAck>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:jy.NetAliveAck)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:jy.NetAliveAck)
+    MergeFrom(*source);
+  }
+}
+
+void NetAliveAck::MergeFrom(const NetAliveAck& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:jy.NetAliveAck)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    if (cached_has_bits & 0x00000001u) {
+      requestms_ = from.requestms_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      responsems_ = from.responsems_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      messageid_ = from.messageid_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void NetAliveAck::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:jy.NetAliveAck)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void NetAliveAck::CopyFrom(const NetAliveAck& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:jy.NetAliveAck)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool NetAliveAck::IsInitialized() const {
+  return true;
+}
+
+void NetAliveAck::InternalSwap(NetAliveAck* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(NetAliveAck, responsems_)
+      + sizeof(NetAliveAck::responsems_)
+      - PROTOBUF_FIELD_OFFSET(NetAliveAck, requestms_)>(
+          reinterpret_cast<char*>(&requestms_),
+          reinterpret_cast<char*>(&other->requestms_));
+  swap(messageid_, other->messageid_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata NetAliveAck::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_protocol_2eproto_getter, &descriptor_table_protocol_2eproto_once,
+      file_level_metadata_protocol_2eproto[3]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace jy
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::jy::PlayerData* Arena::CreateMaybeMessage< ::jy::PlayerData >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::jy::PlayerData >(arena);
+template<> PROTOBUF_NOINLINE ::jy::NetConnect* Arena::CreateMaybeMessage< ::jy::NetConnect >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::jy::NetConnect >(arena);
+}
+template<> PROTOBUF_NOINLINE ::jy::NetDisconnect* Arena::CreateMaybeMessage< ::jy::NetDisconnect >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::jy::NetDisconnect >(arena);
+}
+template<> PROTOBUF_NOINLINE ::jy::NetAliveReq* Arena::CreateMaybeMessage< ::jy::NetAliveReq >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::jy::NetAliveReq >(arena);
+}
+template<> PROTOBUF_NOINLINE ::jy::NetAliveAck* Arena::CreateMaybeMessage< ::jy::NetAliveAck >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::jy::NetAliveAck >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

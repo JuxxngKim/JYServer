@@ -15,7 +15,7 @@ namespace network
 		auto task = (NetworkTask*)m_target;
 		if (task == nullptr)
 		{
-			RE_LOG_ERROR(0, 0, "task null");
+			S_LOG_ERROR(0, 0, "task null");
 			return;
 		}
 
@@ -23,7 +23,7 @@ namespace network
 		auto host = (NetworkHost*)task->m_owner;
 		if (host == nullptr)
 		{
-			RE_LOG_ERROR(0, 0, "host null");
+			S_LOG_ERROR(0, 0, "host null");
 			return;
 		}
 
@@ -42,7 +42,7 @@ namespace network
 				break;
 
 			default:
-				RE_LOG_ERROR(host->GetHostID(), 0, "unknown task : [type:%]", static_cast<int32_t>(type));
+				S_LOG_ERROR(host->GetHostID(), 0, "unknown task : [type:%]", static_cast<int32_t>(type));
 				host->Close();
 				break;
 			}
@@ -62,10 +62,10 @@ namespace network
 	void NetworkEventConnect::Run()
 	{
 		//host 생성
-		auto host = NetworkManager::GetInstance()->CreateHost();
+		auto host = NetworkManager::GetInstance().CreateHost();
 		if (host == nullptr)
 		{
-			RE_LOG_ERROR(0, 0, "CreateHost failed");
+			S_LOG_ERROR(0, 0, "CreateHost failed");
 			return;
 		}
 
@@ -81,10 +81,10 @@ namespace network
 	void NetworkEventListen::Run()
 	{
 		//host 생성
-		auto host = NetworkManager::GetInstance()->CreateHost();
+		auto host = NetworkManager::GetInstance().CreateHost();
 		if (host == nullptr)
 		{
-			RE_LOG_ERROR(0, 0, "CreateHost failed");
+			S_LOG_ERROR(0, 0, "CreateHost failed");
 			return;
 		}
 
@@ -100,10 +100,10 @@ namespace network
 	void NetworkEventAccept::Run()
 	{
 		//host 생성
-		auto host = NetworkManager::GetInstance()->CreateHost();
+		auto host = NetworkManager::GetInstance().CreateHost();
 		if (host == nullptr)
 		{
-			RE_LOG_ERROR(0, 0, "CreateHost failed");
+			S_LOG_ERROR(0, 0, "CreateHost failed");
 			return;
 		}
 
@@ -121,7 +121,7 @@ namespace network
 		//host 체크
 		for (auto hostID : m_hostIds)
 		{
-			auto host = NetworkManager::GetInstance()->FindHost(hostID);
+			auto host = NetworkManager::GetInstance().FindHost(hostID);
 			if (host == nullptr) continue;
 
 			//리스트에 추가
@@ -144,12 +144,12 @@ namespace network
 
 	void NetworkEventSend::Serialize()
 	{
-		NetworkManager::GetInstance()->TraceMessage(m_json, m_packetId, *m_packet);
+		NetworkManager::GetInstance().TraceMessage(m_json, m_packetId, *m_packet);
 
 		m_buffer = NEW(NetworkBuffer, m_ignoreEncrypt);
 		if (m_buffer->PacketToByte(m_packetId, *m_packet) == false)
 		{
-			RE_LOG_ERROR(0, 0, "failed PacketToByte : [id:%]", m_packetId);
+			S_LOG_ERROR(0, 0, "failed PacketToByte : [id:%]", m_packetId);
 		}
 
 		m_step = ESerialize::Completed;
@@ -165,7 +165,7 @@ namespace network
 	{
 		for (auto hostID : m_hostIds)
 		{
-			auto host = NetworkManager::GetInstance()->FindHost(hostID);
+			auto host = NetworkManager::GetInstance().FindHost(hostID);
 			if (host == nullptr) continue;
 			if (host->GetHostType() == ENetworkHost::Listener) continue;
 
@@ -182,7 +182,7 @@ namespace network
 
 	void NetworkEventRegisterValue::Run()
 	{
-		auto host = NetworkManager::GetInstance()->FindHost(m_hostId);
+		auto host = NetworkManager::GetInstance().FindHost(m_hostId);
 		if (host == nullptr) return;
 
 		host->SetHostValue(m_value);
@@ -196,7 +196,7 @@ namespace network
 
 	void NetworkEventEncrypt::Run()
 	{
-		const auto& host = NetworkManager::GetInstance()->FindHost(m_hostID);
+		const auto& host = NetworkManager::GetInstance().FindHost(m_hostID);
 		if (host == nullptr) return;
 
 		host->SetEncrypted();
@@ -209,7 +209,7 @@ namespace network
 
 	void NetworkEventNonce::Run()
 	{
-		const auto& host = NetworkManager::GetInstance()->FindHost(m_hostID);
+		const auto& host = NetworkManager::GetInstance().FindHost(m_hostID);
 		if (host == nullptr) return;
 
 		//host->SetNonce(m_nonce);

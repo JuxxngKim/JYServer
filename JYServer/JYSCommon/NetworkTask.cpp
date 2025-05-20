@@ -273,7 +273,7 @@ namespace network
 			int32_t error = WSAGetLastError();
 			if (error != WSA_IO_PENDING)
 			{
-				//S_LOG_ERROR(m_hostId, 0, "failed - WSARecv:%", error);
+				S_LOG_ERROR(host->GetHostID(), 0, "failed - WSARecv:%", error);
 				Failed();
 				return;
 			}
@@ -293,7 +293,7 @@ namespace network
 		//요청결과 체크
 		if (result == false || transferred <= 0)
 		{
-			//S_LOG_ERROR(host->GetHostID(), 0, "failed - result");
+			S_LOG_ERROR(host->GetHostID(), 0, "failed - result");
 			Failed();
 			return;
 		}
@@ -356,7 +356,7 @@ namespace network
 			int32_t error = WSAGetLastError();
 			if (error != WSA_IO_PENDING)
 			{
-				//S_LOG_ERROR(host->GetHostID(), 0, "failed - WSASend:%", error);
+				S_LOG_ERROR(host->GetHostID(), 0, "failed - WSASend:%", error);
 				Failed();
 				return;
 			}
@@ -377,7 +377,7 @@ namespace network
 		//요청결과 체크
 		if (result == false || transferred <= 0)
 		{
-			//S_LOG_ERROR(host.GetHostID(), 0, "failed - result");
+			S_LOG_ERROR(host->GetHostID(), 0, "failed - result");
 			Failed();
 			return;
 		}
@@ -385,7 +385,7 @@ namespace network
 		//다 보냈는지 체크
 		if (transferred != m_total)
 		{
-			//S_LOG_ERROR(host->GetHostID(), 0, "transferred:%/%", transferred, m_total);
+			S_LOG_ERROR(host->GetHostID(), 0, "transferred:%/%", transferred, m_total);
 			return;
 		}
 
@@ -395,3 +395,4 @@ namespace network
 		ncc->m_target = this;
 		NetworkManager::GetInstance().ControllerPush(ncc);
 	}
+}

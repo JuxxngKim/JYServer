@@ -1,25 +1,71 @@
-// protos/sprotocol.proto
-syntax = "proto3";
+﻿syntax = "proto2";
 package jy;
 
-import "protocol.proto"; // protocol.proto 임포트 (PlayerData 사용 위함)
+import "enum.proto";
 
-// 로그인 요청 메시지
-message LoginRequest {
-  string user_id = 1;
-  string password_hash = 2; // 비밀번호는 해시된 값으로 전송 가정
+message NullMessage
+{
+	optional EMessageID			MessageID			= 99	[default = NULL_MESSAGE];
+	optional EErrorMsg			Error				= 95	[default = E_UNKNOWN];
 }
 
-// 로그인 응답 메시지
-message LoginResponse {
-  bool success = 1;
-  string error_message = 2; // 실패 시 에러 메시지
-  PlayerData player_data = 3; // 성공 시 플레이어 데이터 (protocol.proto의 PlayerData 사용)
+message InternalEventTick
+{
+	optional EMessageID			MessageID			= 99	[default = INTERNAL_EVENT_TICK];
+	
+	optional int32				EventType			= 1;
+	optional int64				Value				= 2;
 }
 
-// 간단한 인증 서비스 정의 (gRPC 등에서 활용 가능)
-service AuthService {
-  // Login 메서드 정의 (LoginRequest를 받아 LoginResponse를 반환)
-  rpc Login (LoginRequest) returns (LoginResponse);
-  // 다른 RPC 메서드 추가 가능
+message ADLoginReq
+{
+	optional EMessageID			MessageID			= 99	[default = AD_LOGIN_REQ];
+	
+	required string				PID					= 1;
+	//required int64				LogKey				= 2;
+	//required MDateTime			UpdateDate			= 3;	
+	//required bool				IsReconnect			= 4;
+	//required int32				ServerID			= 5;
+	//required int32				LanguageID			= 6;
+	//optional string				AppVersion			= 7;
+	//required bool				Authenticated		= 8;
+	//required EPlatformType		PlatformType		= 9;
+	//optional string				IP					= 10;
+	//// 11, 12, 13 순차 패치 관련 멤버
+	//optional bool				SequenceMaintenanceLogin		= 11	[default = false];
+	//optional bool				ForceLogin						= 12	[default = false];
+	//optional MDateTime			SequenceMaintenanceStartDate	= 13;
+	//required string				ServiceCountry		= 14;
+}
+
+message DALoginAck
+{
+	optional EMessageID			MessageID				= 99	[default = DA_LOGIN_ACK];
+	
+	required string				PID						= 1;
+	required int64				AccountId				= 2;
+	required int32				GameDbId				= 3;
+	required string				PlayerName				= 4;
+	//required bool				IsReconnect				= 5;
+	//required int32				ChannelID				= 6;
+	//required int32				FreeNicknameChangeCount = 7;
+	//required bool				IsNewAccount			= 8;
+	//required MDateTime			UpdateTime				= 9;
+	//required int32				LanguageID				= 10;
+	//required int32				TotalPlayTime			= 11;
+	//required bool Authenticated = 12;
+	//required EPlatformType		PlatformType			= 13;
+	//optional string				IP						= 14;
+	//// 15, 16 순차 패치 관련 멤버
+	//optional bool				SequenceMaintenanceLogin			= 15	[default = false];
+	//optional bool				ForceLogin							= 16	[default = false];
+}
+
+message DALoginNak
+{
+	optional EMessageID			MessageID			= 99	[default = DA_LOGIN_NAK];
+	
+	required EErrorMsg			Error				= 1;
+	required string				PID					= 2;
+	required bool				IsForceLogin		= 3;
 }

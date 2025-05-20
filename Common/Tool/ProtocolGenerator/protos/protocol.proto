@@ -1,14 +1,35 @@
-// protos/protocol.proto
-syntax = "proto3";
+﻿syntax = "proto2";
 package jy;
 
-import "enum.proto"; // 위에서 정의한 enum.proto 파일을 임포트
+import "enum.proto";
 
-// 플레이어 데이터를 담는 메시지 구조
-message PlayerData {
-  string player_id = 1;   // 플레이어 ID (문자열)
-  string player_name = 2; // 플레이어 이름 (문자열)
-  int32 level = 3;        // 레벨 (32비트 정수)
-  PlayerState state = 4;  // 플레이어 상태 (enum.proto의 PlayerState 사용)
-  repeated string items = 5; // 보유 아이템 목록 (문자열 배열)
+// packet ///////////////////////////////////////////////////////////////////////////
+message NetConnect
+{
+	optional EMessageID			MessageID			= 99	[default = NET_CONNECT];
+
+	optional string				ConnectIP			= 1		[default = ""];
+	optional int32				ConnectPort			= 2		[default = 0];
+	optional int32				TimeoutMS			= 3		[default = 0];
+	optional int64				ServerTime			= 4		[default = 0];
+}
+
+message NetDisconnect
+{
+	optional EMessageID			MessageID			= 99	[default = NET_DISCONNECT];
+}
+
+message NetAliveReq
+{
+	optional EMessageID			MessageID			= 99	[default = NET_ALIVE_REQ];
+
+	optional int64				RequestMS			= 1		[default = 0];
+}
+
+message NetAliveAck
+{
+	optional EMessageID			MessageID			= 99	[default = NET_ALIVE_ACK];
+
+	optional int64				RequestMS			= 1		[default = 0];
+	optional int64				ResponseMS			= 2		[default = 0];
 }

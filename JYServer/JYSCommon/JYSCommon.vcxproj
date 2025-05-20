@@ -212,6 +212,25 @@
     <ClCompile Include="ThreadCollector.cpp" />
     <ClCompile Include="TimeUtil.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Common\Tool\ProtocolGenerator\protos\enum.proto">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\..\Common\Tool\ProtocolGenerator\protos\protocol.proto">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <CustomBuild Include="..\..\Common\Tool\ProtocolGenerator\protos\sprotocol.proto">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)..\..\Common\Tool\ProtocolGenerator\compile.bat %(RelativeDir) $(SolutionDir)ResCommon\</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(RelativeDir)%(Filename).pb.h;%(RelativeDir)%(Filename).pb.cc</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)..\..\Common\Tool\ProtocolGenerator\compile.bat %(RelativeDir) $(SolutionDir)ResCommon\</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(RelativeDir)%(Filename).pb.h;%(RelativeDir)%(Filename).pb.cc</Outputs>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </CustomBuild>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
